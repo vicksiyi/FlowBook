@@ -1,0 +1,58 @@
+.logo-container {
+  width: 100%;
+  height: 800rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.key-login-btn {
+  width: 80% !important;
+  border-radius: 5rpx;
+  background-color: #2db7f5;
+  color: white;
+  font-size: 38rpx;
+  font-weight: normal;
+  margin-bottom: 30rpx;
+}
+
+.account-login-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50rpx;
+}
+
+.account-login-text {
+  font-size: 30rpx;
+  color: #515a6e;
+}
+
+.account-login-icon {
+  width: 22rpx;
+  height: 22rpx;
+}
+
+.tip-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200rpx;
+}
+
+.tip-normal {
+  font-size: 24rpx;
+  color: #808695;
+}
+
+.tip-book {
+  font-size: 24rpx;
+  color: #2b85e4;
+  margin: 0 5rpx;
+}

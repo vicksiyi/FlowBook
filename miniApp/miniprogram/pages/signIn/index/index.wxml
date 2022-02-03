@@ -1,0 +1,19 @@
+<view>
+  <view class="logo-container">
+    <image src="../../../assets/images/main-logo.jpg" class="logo-img"></image>
+  </view>
+  <view>
+    <button class="key-login-btn" bindtap="getUserProfile">一键登录</button>
+  </view>
+  <view class="account-login-container">
+    <view class="account-login-text" bindtap="onAccountLogin">账号注册/登录</view>
+    <image src="../../../assets/images/otherIcon/arrow-right.png" class='account-login-icon'></image>
+  </view>
+  <view class="tip-container">
+    <span class="tip-normal">登录即表示同意系统</span>
+    <span class="tip-book">《用户协议》</span>
+    <span class="tip-normal">和</span>
+    <span class="tip-book">《隐私政策》</span>
+  </view>
+</view>
+<i-message id="message" />

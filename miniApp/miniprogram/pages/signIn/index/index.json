@@ -1,0 +1,9 @@
+{
+  "disableScroll": true,
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "i-button": "../../../dist/button/index",
+    "i-message": "../../../dist/message/index"
+  }
+}

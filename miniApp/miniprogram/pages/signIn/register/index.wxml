@@ -1,0 +1,69 @@
+<view wx:if="{{!isOauth}}">
+  <button style="margin-top: 20rpx;" class="key-login-btn" bindtap="getUser" open-type="getUserInfo">获取头像&昵称</button>
+</view>
+<view wx:else>
+  <view class="wechat-img">
+    <image src="{{userInfo.avatarUrl}}"></image>
+    <view class="modify" bindtap="modifyAvatar">修改</view>
+  </view>
+  <i-input value="{{ userInfo.nickName }}" bind:change="nickNameChange" title="昵称*" placeholder="请输入昵称" />
+  <view class="panel">
+    <i-panel title="基本信息*">
+      <i-input value="{{ password }}" bind:change="passwordChange" type="password" title="密码" placeholder="请输入登录密码" />
+      <i-input value="{{ password2 }}" bind:change="password2Change" type="password" title="确认密码" placeholder="请再次输入登录密码" />
+    </i-panel>
+  </view>
+</view>
+<view class="panel">
+  <i-panel title="个人简介">
+    <view class="text-box">
+      <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{msg}}" bindinput='inputText' placeholder="请输入个人简介..."></textarea>
+      <span class="wordwrap">{{number}}/{{maxNumber}}</span>
+    </view>
+  </i-panel>
+</view>
+<!-- 手机号验证 -->
+<view class="panel">
+  <i-panel title="手机号验证*">
+    <view class="phone-oauth">
+      <view class="input">
+        <i-input value="{{ phone }}" bind:change="phoneChange" placeholder="请输入手机号" />
+      </view>
+      <view class="send">
+        <button wx:if="{{!isSendPhone}}" bindtap="sendPhone" size="mini" style="background:#2DB7F5;color:#fff;line-height:68rpx;margin-top:10rpx;font-size:26rpx;">
+          发送验证码
+        </button>
+        <button wx:else size="mini" disabled="true" style="background:#bbbec4;color:#fff;line-height:68rpx;margin-top:10rpx;">
+          {{phoneNum}}
+        </button>
+      </view>
+    </view>
+    <view class="code">
+      <i-input value="{{ phoneCode }}" bind:change="phoneCodeChange" type="number" title="验证码" placeholder="请输入手机号验证码" />
+    </view>
+  </i-panel>
+</view>
+<view class="panel">
+  <i-panel title="邮箱号验证">
+    <view class="phone-oauth">
+      <view class="input">
+        <i-input value="{{ email }}" bind:change="emailChange" placeholder="请输入邮箱号号" />
+      </view>
+      <view class="send">
+        <button wx:if="{{!isSendEmail}}" bindtap="sendEmail" size="mini" style="background:#2DB7F5;color:#fff;line-height:68rpx;margin-top:10rpx;font-size:26rpx;">
+          发送验证码
+        </button>
+        <button wx:else size="mini" disabled="true" style="background:#bbbec4;color:#fff;line-height:68rpx;margin-top:10rpx;">
+          {{emailNum}}
+        </button>
+      </view>
+    </view>
+    <view class="code">
+      <i-input value="{{ emailCode }}" bind:change="emailCodeChange" type="number" title="验证码" placeholder="请输入邮箱号验证码" />
+    </view>
+  </i-panel>
+</view>
+<i-message id="message" />
+<button class="key-login-btn" bindtap="submit" style="margin-top:30rpx;margin-bottom:30rpx;">
+  注册
+</button>

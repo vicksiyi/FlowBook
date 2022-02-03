@@ -1,0 +1,98 @@
+.panel {
+  margin-top: 30rpx;
+}
+
+.phone-oauth {
+  display: flex;
+  flex-direction: row;
+}
+
+.phone-oauth .input {
+  width: 450rpx;
+  margin-left: 80rpx;
+  margin-top: 20rpx;
+}
+
+.phone-oauth .send {
+  width: 220rpx;
+  margin-top: 20rpx;
+}
+
+.code {
+  width: 670rpx;
+  margin-left: 80rpx;
+}
+
+.text-box {
+  margin: 20rpx 28rpx;
+  width: 694rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  position: relative;
+}
+
+.textArea {
+  width: 654rpx;
+}
+
+.wordwrap {
+  position: absolute;
+  right: 12rpx;
+  bottom: 12rpx;
+}
+
+.nav-input {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-input .input {
+  width: 500rpx;
+}
+
+.nav-input .nav {
+  width: 230rpx;
+  line-height: 100rpx;
+  color: #80848f;
+  text-align: right;
+  margin-right: 20rpx;
+}
+
+.wechat-img {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 30rpx auto;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 1rpx 1rpx 10rpx #f8f8f9;
+}
+
+.wechat-img image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+
+.wechat-img .modify {
+  position: absolute;
+  bottom: 0;
+  width: 160rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  height: 40rpx;
+  background-image: linear-gradient(#dddee1, #495060);
+  color: #fff;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+  flex-direction: row;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+}

@@ -1,0 +1,86 @@
+.input-container {
+  padding: 50rpx;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20rpx;
+  margin-top: 30rpx;
+}
+
+.input-line {
+  margin-bottom: 16rpx;
+  border-bottom: solid #e9eaec 1rpx;
+}
+
+.input-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+
+.input-text {
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  color: #1c2438;
+}
+
+.phcolor {
+  color: #bbbec4;
+}
+
+.account-login-btn {
+  color: #fff;
+  background-color: #2db7f5;
+  font-size: 32rpx;
+  font-weight: normal;
+  text-align: center;
+  width: 80% !important;
+}
+
+.login-way-text {
+  width: 120rpx;
+  padding-right: 30rpx;
+  padding-top: 25rpx;
+  font-size: 24rpx;
+  color: #80848f;
+  margin-left: auto;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  margin-left: 10rpx;
+  flex-direction: row;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+}
+
+.send-code {
+  display: flex;
+  flex-direction: row;
+  width: 600rpx;
+  margin: 30rpx auto;
+}
+
+.send-code .send-code-input {
+  width: 450rpx;
+  border: 1rpx solid #f8f8f9;
+  height: 70rpx;
+}
+
+.send-btn {
+  width: 100rpx !important;
+  height: 70rpx;
+  font-size: 30rpx;
+  padding: 0;
+  line-height: 70rpx;
+}
+
+.auth-code{
+  width: 450rpx;
+  margin-left: 74rpx;
+}

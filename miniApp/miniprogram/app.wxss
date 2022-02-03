@@ -1,0 +1,31 @@
+.key-login-btn {
+  width: 80% !important;
+  border-radius: 5rpx;
+  background-color: #2db7f5;
+  color: white;
+  font-size: 38rpx;
+  font-weight: normal;
+  margin-bottom: 30rpx;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx;
+}
+
+.btn-cancle {
+  width: 35% !important;
+  font-size: 30rpx;
+  background-color: #e8eaec;
+  color: #17233d;
+  font-weight: normal;
+}
+
+.btn-sumbit {
+  width: 35% !important;
+  font-size: 30rpx;
+  background-color: #2db7f5;
+  color: #fff;
+  font-weight: normal;
+}
