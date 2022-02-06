@@ -29,3 +29,14 @@
   color: #fff;
   font-weight: normal;
 }
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.nowrap{
+  white-space: nowrap;
+}
+
+.exit{
+  color: #ed3f14;
+}

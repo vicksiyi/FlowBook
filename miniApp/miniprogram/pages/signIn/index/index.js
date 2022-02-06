@@ -19,5 +19,10 @@ Page({
     wx.navigateTo({
       url: "../login/index",
     });
+  },
+  getUserProfile(){
+    wx.navigateTo({
+      url: '../../index/home/index',
+    })
   }
 })

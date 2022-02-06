@@ -1,0 +1,6 @@
+<!--components/tag/index.wxml-->
+<view class="tag">
+  <view class="first"></view>
+  <view class="title">{{title}}</view>
+  <view class="other">查看更多></view>
+</view>

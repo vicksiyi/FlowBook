@@ -1,0 +1,4 @@
+<!--components/message/index.wxml-->
+<view class="message">
+  <slot></slot>
+</view>

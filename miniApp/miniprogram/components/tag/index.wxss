@@ -1,0 +1,32 @@
+/* components/tag/index.wxss */
+.tag {
+  display: flex;
+  flex-direction: row;
+  width: 730rpx;
+  margin: 30rpx auto;
+  height: 50rpx;
+}
+
+.tag .first {
+  width: 10rpx;
+  height: 40rpx;
+  background: #2d8cf0;
+  margin-top: 5rpx;
+}
+
+.tag .title {
+  width: 300rpx;
+  line-height: 50rpx;
+  margin-left: 20rpx;
+  font-size: 35rpx;
+  color: #495060;
+}
+
+
+.tag .other {
+  width: 160rpx;
+  margin-left: 260rpx;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  color: #80848f;
+}

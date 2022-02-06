@@ -1,0 +1,5 @@
+/* components/message/index.wxss */
+.message{
+  width: 720rpx;
+  margin: 20rpx auto;
+}

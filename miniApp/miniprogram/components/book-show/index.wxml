@@ -1,0 +1,14 @@
+<!--components/book-show/index.wxml-->
+<view class="book">
+  <view class="item" wx:for="{{books}}" wx:key="*this">
+    <view class="img">
+      <image src="{{item.url}}"></image>
+    </view>
+    <view class="name">
+      {{item.name}}
+    </view>
+    <view class="detail">
+      在馆:<span>{{item.library}}</span>/{{item.all}}
+    </view>
+  </view>
+</view>

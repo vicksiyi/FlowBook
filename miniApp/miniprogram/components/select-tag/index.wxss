@@ -1,0 +1,32 @@
+/* components/select-tag/index.wxss */
+.select {
+  width: 730rpx;
+  margin: 30rpx auto;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  /* border: 1rpx solid #f8f8f9; */
+}
+
+.select .select-item {
+  width: 150rpx;
+  background: #fff;
+  border: 1rpx solid #f8f8f9;
+}
+.select .select-item-hover{
+  background: #f8f8f9;
+}
+
+.select .select-item image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 35rpx;
+  margin-left: 35rpx;
+}
+
+.select .select-item .text {
+  text-align: center;
+  margin-bottom: 20rpx;
+  font-size: 20rpx;
+  color: #80848f;
+}

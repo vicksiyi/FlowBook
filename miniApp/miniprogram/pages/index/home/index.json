@@ -1,0 +1,18 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "i-tab-bar": "../../../dist/tab-bar/index",
+    "i-tab-bar-item": "../../../dist/tab-bar-item/index",
+    "m-swiper": "../../../components/swiper/index",
+    "m-select-tag": "../../../components/select-tag/index",
+    "m-book-show": "../../../components/book-show/index",
+    "m-tag": "../../../components/tag/index",
+    "m-message":"../../../components/message/index",
+    "m-message-item":"../../../components/message-item/index",
+    "m-avatar-card":"../../../components/avatar-card/index",
+    "i-spin": "../../../dist/spin/index",
+    "i-cell-group": "../../../dist/cell-group/index",
+    "i-cell": "../../../dist/cell/index",
+    "i-panel": "../../../dist/panel/index"
+  }
+}

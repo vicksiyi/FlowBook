@@ -1,0 +1,61 @@
+/* components/avatar-card/index.wxss */
+.card {
+  width: 730rpx;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  background: #2d8cf0;
+  height: 260rpx;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.avatar {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-top: 55rpx;
+  margin-left: 30rpx;
+}
+
+.avatar image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.user {
+  width: 400rpx;
+}
+
+.user .nickName {
+  height: 130rpx;
+  line-height: 180rpx;
+  font-size: 40rpx;
+  padding-left: 20rpx;
+  color: #fff;
+}
+
+.user .id {
+  font-size: 30rpx;
+  color: #fff;
+  width: 300rpx;
+  line-height: 100rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.credit {
+  margin-top: 60rpx;
+}
+
+.credit .num {
+  font-size: 50rpx;
+  color: #19be6b;
+}
+
+.credit .name {
+  color: #fff;
+  margin-top: 20rpx;
+}

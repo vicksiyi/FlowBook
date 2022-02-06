@@ -22,6 +22,9 @@ Page({
   },
   toLogin: async function () {
     console.log("登录")
+    wx.navigateTo({
+      url: '../../index/home/index',
+    })
   },
 
   navOauth: function () {

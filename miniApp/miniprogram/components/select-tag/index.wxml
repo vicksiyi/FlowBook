@@ -1,0 +1,11 @@
+<!--components/select-tag/index.wxml-->
+<view class="select">
+  <view wx:for="{{lists}}" hover-class="select-item-hover" class="select-item">
+    <view>
+      <image src="{{item.url}}"></image>
+    </view>
+    <view class="text">
+      {{item.text}}
+    </view>
+  </view>
+</view>

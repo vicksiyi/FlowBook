@@ -1,0 +1,6 @@
+<!--components/message-item/index.wxml-->
+<view class="message-detail nowrap">
+  <span bindtap="agree" class="success">同意</span>
+  <span bindtap="reject" class="error">拒绝</span>
+  用户1 请求加入 xxx书架
+</view>

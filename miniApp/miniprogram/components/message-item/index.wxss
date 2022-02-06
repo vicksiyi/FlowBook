@@ -1,0 +1,18 @@
+/* components/message-item/index.wxss */
+.message-detail {
+  width: 720rpx;
+  height: 100rpx;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  line-height: 100rpx;
+  margin-top: 20rpx;
+  padding-left: 20rpx;
+}
+span{
+  margin-left: 20rpx;
+}
+.success{
+  color: #19be6b;
+}
+.error{
+  color: #ed3f14;
+}
