@@ -1,0 +1,15 @@
+<!--components/group-book/index.wxml-->
+<view class="book" hover-class="book-hover">
+  <view class="img">
+    <image src="../../assets/temp/5.jpg"></image>
+  </view>
+  <view class="detail">
+    <view>名称：信息系书架</view>
+    <view>简介：一个主要用于实训室上面的书架xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</view>
+    <view>学校/公司：广东石油化工学院</view>
+    <view>创建时间：2020/12/2</view>
+  </view>
+  <view>
+    <slot></slot>
+  </view>
+</view>

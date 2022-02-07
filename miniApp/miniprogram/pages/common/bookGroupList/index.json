@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "m-group":"../../../components/group/index",
+    "m-group-book":"../../../components/group-book/index",
+    "i-tag": "../../../dist/tag/index",
+    "i-button": "../../../dist/button/index"
+  }
+}

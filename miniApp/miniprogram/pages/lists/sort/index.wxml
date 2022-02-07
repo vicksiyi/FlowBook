@@ -1,0 +1,163 @@
+<!--pages/lists/sort/index.wxml-->
+<i-tabs current="{{ current }}" bindchange="handleChange">
+  <i-tab key="tab1" title="上架记录"></i-tab>
+  <i-tab key="tab2" title="信誉分"></i-tab>
+  <i-tab key="tab3" title="借书记录"></i-tab>
+</i-tabs>
+<view class="sort" style="height: {{height}}px;">
+  <view class="item">
+    <view class="num">1</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">2</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">3</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">4</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+  <view class="item">
+    <view class="num">5</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+</view>
+
+<view class="mine">
+  <view class="item">
+    <view class="num">99+</view>
+    <view class="avatar">
+      <image src="../../../assets/temp/5.jpg"></image>
+    </view>
+    <view class="name">憨憨</view>
+    <view class="result">88</view>
+  </view>
+</view>

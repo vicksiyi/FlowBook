@@ -8,7 +8,24 @@ Page({
     current: 'home',
     height: 0,
     spinShow: false,
-    listHeight:0
+    listHeight: 0,
+    lists: [{
+      url: "../../assets/images/home/sort.png",
+      text: "排行",
+      path:"../../lists/sort/index"
+    }, {
+      url: "../../assets/images/home/book.png",
+      text: "查看",
+      path:"../../lists/show/index"
+    }, {
+      url: "../../assets/images/home/add-book.png",
+      text: "加入",
+      path:"../../lists/add/index"
+    }, {
+      url: "../../assets/images/home/mine-book.png",
+      text: "我的",
+      path:"../../lists/mine/index"
+    }]
   },
 
   /**

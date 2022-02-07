@@ -1,0 +1,5 @@
+/* components/group/index.wxss */
+.group{
+  width: 720rpx;
+  margin: 20rpx auto;
+}

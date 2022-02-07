@@ -2,7 +2,7 @@
   <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
   <view wx:if="{{current == 'home'}}">
     <m-swiper></m-swiper>
-    <m-select-tag></m-select-tag>
+    <m-select-tag lists="{{lists}}"></m-select-tag>
     <m-tag></m-tag>
     <m-book-show></m-book-show>
     <m-tag title="官方推荐"></m-tag>

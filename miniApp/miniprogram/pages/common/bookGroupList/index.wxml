@@ -1,0 +1,28 @@
+<!--pages/common/bookGroupList/index.wxml-->
+<m-group>
+  <m-group-book bindtap="select">
+    <i-tag i-class="i-tags" name="标签一" color="green">
+      查看
+    </i-tag>
+  </m-group-book>
+  <m-group-book>
+    <i-tag i-class="i-tags" name="标签一" color="green">
+      查看
+    </i-tag>
+  </m-group-book>
+  <m-group-book>
+    <i-tag i-class="i-tags" name="标签一" color="green">
+      查看
+    </i-tag>
+  </m-group-book>
+  <m-group-book>
+    <i-tag i-class="i-tags" name="标签一" color="green">
+      查看
+    </i-tag>
+  </m-group-book>
+  <m-group-book>
+    <i-tag i-class="i-tags" name="标签一" color="green">
+      查看
+    </i-tag>
+  </m-group-book>
+</m-group>

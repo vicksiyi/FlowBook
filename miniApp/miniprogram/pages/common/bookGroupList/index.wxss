@@ -1,0 +1,4 @@
+/* pages/common/bookGroupList/index.wxss */
+.i-tags{
+  margin-top: 90rpx;
+}
