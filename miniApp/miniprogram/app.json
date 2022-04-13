@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/signIn/index/index",
+    "pages/signIn/register/index",
     "pages/lists/sort/index",
     "pages/common/bookGroupList/index",
-    "pages/signIn/index/index",
     "pages/index/home/index",
-    "pages/signIn/register/index",
     "pages/signIn/login/index",
     "pages/lists/show/index",
     "pages/lists/mine/index",
