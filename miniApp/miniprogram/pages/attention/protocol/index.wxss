@@ -1,0 +1,30 @@
+/* pages/attention/userProtocol/index.wxss */
+view {
+  white-space: normal;
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 20rpx;
+}
+
+.h1 {
+  font-size: 40rpx;
+  color: #1c2438;
+}
+
+.h2 {
+  font-size: 30rpx;
+  color: #1c2438;
+}
+
+.desc {
+  font-size: 27rpx;
+  color: #495060;
+}
+
+.navigator-hover {
+  color: blue;
+}
+
+.other-navigator-hover {
+  color: red;
+}

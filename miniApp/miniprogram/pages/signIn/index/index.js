@@ -20,9 +20,19 @@ Page({
       url: "../login/index",
     });
   },
-  getUserProfile(){
+  getUserProfile() {
     wx.navigateTo({
       url: '../../index/home/index',
+    })
+  },
+  navProtocol() {
+    wx.navigateTo({
+      url: '../../attention/protocol/index',
+    })
+  },
+  navPrivacy(){
+    wx.navigateTo({
+      url: '../../attention/privacy/index',
     })
   }
 })

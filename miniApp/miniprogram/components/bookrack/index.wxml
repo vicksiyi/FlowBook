@@ -1,0 +1,22 @@
+<!--components/bookrack/index.wxml-->
+<view class="bookrack">
+  <view class="top-detail">
+    <view class="logo">
+      <image src="{{logo}}"></image>
+    </view>
+    <view class="detail">
+      <view class="name">
+        <span>书架名称:</span> {{title}}
+      </view>
+      <view class="name">
+        <span>书架所属:</span> {{nickName}}
+      </view>
+      <view class="name">
+        <span>是否可借:</span> <span class="is-borrow">{{isBorrow ? '是':'否'}}</span>
+      </view>
+    </view>
+  </view>
+  <view class="desc">
+    {{desc.length > 0 ? desc:"暂无描述"}}
+  </view>
+</view>

@@ -1,14 +1,16 @@
 {
   "pages": [
+    "pages/lists/show/index",
     "pages/signIn/index/index",
     "pages/signIn/register/index",
     "pages/lists/sort/index",
     "pages/common/bookGroupList/index",
     "pages/index/home/index",
     "pages/signIn/login/index",
-    "pages/lists/show/index",
     "pages/lists/mine/index",
-    "pages/lists/add/index"
+    "pages/lists/add/index",
+    "pages/attention/privacy/index",
+    "pages/attention/protocol/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

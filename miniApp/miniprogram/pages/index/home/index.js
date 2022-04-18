@@ -11,19 +11,19 @@ Page({
     listHeight: 0,
     lists: [{
       url: "../../assets/images/home/sort.png",
-      text: "排行",
+      text: "书架排行",
       path:"../../lists/sort/index"
     }, {
       url: "../../assets/images/home/book.png",
-      text: "查看",
+      text: "查看书架",
       path:"../../lists/show/index"
     }, {
       url: "../../assets/images/home/add-book.png",
-      text: "加入",
+      text: "加入书架",
       path:"../../lists/add/index"
     }, {
       url: "../../assets/images/home/mine-book.png",
-      text: "我的",
+      text: "我的书架",
       path:"../../lists/mine/index"
     }]
   },

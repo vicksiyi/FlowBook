@@ -1,0 +1,66 @@
+/* components/bookrack/index.wxss */
+.bookrack {
+  width: 720rpx;
+  /* height: 300rpx; */
+  margin: 20rpx auto;
+  background: #5cadff;
+  border-radius: 10rpx;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+}
+
+.top-detail {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-detail .logo {
+  padding: 20rpx;
+  width: 200rpx;
+}
+
+.top-detail .logo image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+
+.detail span {
+  font-weight: 400;
+  padding-right: 20rpx;
+  line-height: 50rpx;
+}
+
+.detail {
+  color: #fff;
+  padding: 20rpx 0rpx 20rpx 0;
+  font-size: 26rpx;
+}
+
+.detail .name {
+  display: -webkit-box;
+  /*设置为弹性盒子*/
+  -webkit-line-clamp: 2;
+  /*最多显示3行*/
+  overflow: hidden;
+  /*超出隐藏*/
+  text-overflow: ellipsis;
+  /*超出显示为省略号*/
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.desc {
+  padding: 20rpx;
+  color: #fff;
+  text-indent: 20px;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  font-family: "webfont";
+  max-height: 300rpx;
+  overflow-y: scroll;
+}
+
+.is-borrow {
+  color: #ff9900;
+  font-size: 28rpx;
+}
