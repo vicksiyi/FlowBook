@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "m-book": "../../../../components/book/index"
+  }
+}

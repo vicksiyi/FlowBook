@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "m-book": "../../../../components/book/index",
+    "i-panel": "../../../../dist/panel/index",
+    "i-notice-bar": "../../../../dist/notice-bar/index"
+  }
+}

@@ -1,0 +1,28 @@
+/* pages/lists/bookrack/borrow/index.wxss */
+.flex-img {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.flex-img .img {
+  margin: 20rpx auto;
+}
+
+.flex-img .img:last-child{
+  margin-bottom: 100rpx;
+}
+
+.borrow {
+  height: 100rpx;
+  width: 750rpx;
+  background: #5cadff;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+  line-height: 100rpx;
+  font-size: 40rpx;
+  font-family: "webfont";
+}

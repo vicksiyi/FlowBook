@@ -1,0 +1,14 @@
+/* pages/lists/bookrack/borrowSubmit/index.wxss */
+image {
+  width: 40rpx;
+  height: 40rpx;
+  padding-right: 20rpx;
+  margin-left: 20rpx;
+}
+
+.select-time span{
+  height: 40rpx;
+  line-height: 30rpx;
+  font-size: 25rpx;
+  color: #80848f;
+}

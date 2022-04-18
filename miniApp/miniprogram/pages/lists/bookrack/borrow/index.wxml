@@ -1,0 +1,17 @@
+<!--pages/lists/bookrack/borrow/index.wxml-->
+<m-book></m-book>
+
+<i-panel title="借书注意">
+  <view style="padding: 15px;">暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注</view>
+</i-panel>
+
+<i-panel title="书本照片">
+  <view class="flex-img">
+    <view wx:for="{{[1,2,3,4]}}" class="img">
+      <image bindtap="showImg" data-Url="../../../../assets/temp/4.jpg" src="../../../../assets/temp/4.jpg"></image>
+    </view>
+  </view>
+</i-panel>
+
+<!-- 借出按钮 -->
+<view class="borrow" bindtap="nav">马上借书</view>

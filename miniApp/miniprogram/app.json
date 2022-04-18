@@ -1,7 +1,11 @@
 {
   "pages": [
-    "pages/lists/show/index",
     "pages/signIn/index/index",
+    "pages/lists/show/index",
+    "pages/lists/bookrack/home/index",
+    "pages/lists/bookrack/borrow/index",
+    "pages/lists/bookrack/borrowSubmit/index",
+    "pages/lists/bookrack/detail/index",
     "pages/signIn/register/index",
     "pages/lists/sort/index",
     "pages/common/bookGroupList/index",

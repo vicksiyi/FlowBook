@@ -1,0 +1,10 @@
+<!--pages/lists/bookrack/borrowSubmit/index.wxml-->
+<i-panel title="填写信息">
+  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+    <view class="select-time">
+      <image src="../../../../assets/images/otherIcon/time.png"></image>
+      <span>{{date ? '当前选择:':''}}{{date}}{{date?'-点击重新选择':'点击选择'}}-归还时间</span>
+    </view>
+  </picker>
+  <i-button bind:click="handleClick" style="margin-top:20rpx;" type="primary">马上借书</i-button>
+</i-panel>

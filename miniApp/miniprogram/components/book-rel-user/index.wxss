@@ -1,0 +1,39 @@
+/* components/book-rel-user/index.wxss */
+.book-rel-user {
+  display: flex;
+  flex-direction: row;
+  width: 720rpx;
+  height: 140rpx;
+  background: #5cadff;
+  margin: 20rpx auto;
+  border-radius: 10rpx;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.book-rel-user .avatar {
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 20rpx;
+}
+
+.book-rel-user .avatar image {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx;
+}
+
+.book-rel-user .detail {
+  color: #fff;
+  font-size: 25rpx;
+  line-height: 40rpx;
+  padding-top: 10rpx;
+}
+
+.book-rel-user .detail span {
+  padding-right: 20rpx;
+  color: #fff;
+}
+
+.book-rel-user .detail .item:last-child {
+  color: #ff9900;
+}

@@ -1,0 +1,8 @@
+<!--pages/lists/bookrack/detail/index.wxml-->
+<m-book></m-book>
+<i-panel title="在架情况">
+  <m-book-rel-user bindtap="nav"></m-book-rel-user>
+  <m-book-rel-user></m-book-rel-user>
+  <m-book-rel-user></m-book-rel-user>
+  <m-book-rel-user></m-book-rel-user>
+</i-panel>

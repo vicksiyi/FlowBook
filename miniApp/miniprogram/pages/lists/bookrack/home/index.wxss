@@ -1,0 +1,52 @@
+/* pages/lists/bookrack/home/index.wxss */
+.tools-list {
+  position: fixed;
+  bottom: 20rpx;
+  right: 30rpx;
+  color: #fff;
+}
+
+@keyframes show {
+  from {
+    margin-top: -240rpx;
+    opacity: 0;
+  }
+
+  to {
+    margin-top: 20rpx;
+    opacity: 1;
+  }
+}
+
+.tools-list .item {
+  width: 80rpx;
+  height: 80rpx;
+  background: #5cadff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 20rpx;
+  animation: show 1s;
+  border: 1rpx solid #fff;
+  box-shadow: 0 2px 4px rgba(116, 113, 113, 0.12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.tools-list .item:nth-child(odd) {
+  background: #19be6b;
+}
+
+.tools-list .item:nth-child(even) {
+  background: #ff9900;
+}
+
+.tools-list .item:last-child {
+  background: #5cadff;
+}
+
+.select {
+  transform: rotate(270deg);
+}
+
+.selected {
+  transform: rotate(90deg);
+}

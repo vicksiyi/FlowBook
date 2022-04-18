@@ -1,0 +1,46 @@
+/* components/book/index.wxss */
+.book {
+  width: 720rpx;
+  height: 300rpx;
+  background: #5cadff;
+  margin: 20rpx auto;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10rpx;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.avatar {
+  width: 200rpx;
+  height: 300rpx;
+}
+
+.avatar image {
+  width: 160rpx;
+  height: 240rpx;
+  margin: 30rpx;
+}
+
+.detail {
+  color: #fff;
+  font-size: 25rpx;
+  padding: 20rpx;
+  line-height: 40rpx;
+}
+
+.detail .item {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.detail .item:last-child {
+  -webkit-line-clamp: 2;
+}
+
+.detail .item span {
+  padding-right: 20rpx;
+}
