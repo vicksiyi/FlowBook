@@ -1,0 +1,22 @@
+<!--pages/lists/bookrack/add/index.wxml-->
+<!-- 扫描 -->
+<view class="scan" bindtap="scan">
+  <image src="../../../../assets/images/otherIcon/scan.png">扫码上架</image>
+  扫码上架
+</view>
+<view wx:if="{{isbn}}">
+  <m-book url="{{url}}" title="{{title}}" author="{{author}}" isbn="{{isbn}}" publisher="{{publisher}}" pubdate="{{pubdate}}" summary="{{summary}}"></m-book>
+  <view class="add">
+    <i-button bind:click="addImage" type="primary">添加图片</i-button>
+  </view>
+  <view class="image-list">
+    <view wx:for="{{images}}" class="item">
+      <image src="{{item}}"></image>
+    </view>
+  </view>
+  <view wx:if="{{images.length > 0}}" class="add">
+    <i-button bind:click="submit" type="primary">上架图书</i-button>
+  </view>
+</view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

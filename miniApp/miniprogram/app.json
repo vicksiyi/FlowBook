@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/signIn/index/index",
-    "pages/lists/show/index",
     "pages/lists/bookrack/home/index",
+    "pages/signIn/index/index",
+    "pages/lists/bookrack/add/index",
+    "pages/lists/show/index",
     "pages/lists/bookrack/borrow/index",
     "pages/lists/bookrack/borrowSubmit/index",
     "pages/lists/bookrack/detail/index",

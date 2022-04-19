@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tools: ["添", "借", "还", "退"],
+    tools: [
+      { title: "添", url: "../add/index" },
+      { title: "借", url: "" },
+      { title: "还", url: "" },
+      { title: "退", url: "" }],
     selected: false
   },
 
@@ -26,6 +30,12 @@ Page({
   nav() {
     wx.navigateTo({
       url: '../detail/index',
+    })
+  },
+  navPage(res) {
+    const url = res.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: url,
     })
   }
 })

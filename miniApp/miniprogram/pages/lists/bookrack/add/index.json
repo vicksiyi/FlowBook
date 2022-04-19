@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "m-book": "../../../../components/book",
+    "i-message": "../../../../dist/message/index",
+    "i-spin": "../../../../dist/spin/index",
+    "i-button": "../../../../dist/button/index"
+  }
+}

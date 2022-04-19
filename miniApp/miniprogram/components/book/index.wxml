@@ -1,26 +1,26 @@
 <!--components/book/index.wxml-->
 <view class="book">
   <view class="avatar">
-    <image src="../../assets/temp/4.jpg"></image>
+    <image src="{{url}}"></image>
   </view>
   <view class="detail">
     <view class="item">
-      <span>书名:</span>刑法中的同意制度
+      <span>书名:</span>{{title}}
     </view>
     <view class="item">
-      <span>作者名称:</span> 罗翔
+      <span>作者名称:</span> {{author}}
     </view>
     <view class="item">
-      <span>ISBN:</span> 
+      <span>ISBN:</span> {{isbn}}
     </view>
     <view class="item">
-      <span>出版社:</span>
+      <span>出版社:</span> {{publisher}}
     </view>
     <view class="item">
-      <span>出版时间:</span>
+      <span>出版时间:</span> {{pubdate}}
     </view>
     <view class="item">
-      <span>简介:</span>一个主要用于实训室上面的书架xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      <span>简介:</span>{{summary}}
     </view>
   </view>
 </view>
