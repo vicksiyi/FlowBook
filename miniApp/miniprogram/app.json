@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/lists/bookrack/exit/index",
+    "pages/signIn/index/index",
     "pages/index/home/index",
+    "pages/lists/bookrack/exit/index",
     "pages/lists/bookrack/back/index",
     "pages/lists/bookrack/borrowBook/index",
     "pages/lists/bookrack/home/index",
-    "pages/signIn/index/index",
     "pages/lists/bookrack/add/index",
     "pages/lists/show/index",
     "pages/lists/bookrack/borrow/index",
