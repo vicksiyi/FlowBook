@@ -1,6 +1,4 @@
-// pages/lists/bookrack/add/index.js
-const getBook = require("../../../../utils/scan").getBook;
-const { $Message } = require('../../../../dist/base/index');
+// pages/lists/bookrack/back/index.js
 const getRandomStr = require("../../../../utils/utils").getRandomStr;
 Page({
 
@@ -8,48 +6,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isbn: "",
-    url: "",
-    title: "",
-    author: "",
-    publisher: "",
-    pubdate: "",
-    summary: "",
-    spinShow: false,
-    images: []
+    isshow: false,
+    isbn: "9787212058937",
+    url: "http:\/\/api.jisuapi.com\/isbn\/upload\/96\/033c435b3f0f30.jpg",
+    title: "有理想就有疼痛",
+    author: "高晓春",
+    publisher: "安徽人民出版社",
+    pubdate: "2013-1",
+    summary: "《有理想就有疼痛:中国当代文化名人访谈录》是一份关于当代中国文化的最真实底稿，收录了高晓春与白先勇、冯骥才、余华、莫言、余秋雨、陈忠实等20位当代中国文化大家的对话。通过近距离的访谈，展现了这些文化大家多彩的内心世界，也阐释了他们对生命、艺术、财富及文化的理解。",
+    images:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.setNavigationBarTitle({
-      title: '广油信息-上架图书',
-    })
+
   },
   scan() {
     let _this = this;
-    this.setData({ spinShow: true })
     wx.scanCode({
       onlyFromCamera: true,
       async success(res) {
-        let _result = (await getBook(res.result)).result;
-        _this.setData({
-          isbn: _result.isbn,
-          url: _result.pic,
-          title: _result.title,
-          author: _result.author,
-          publisher: _result.publisher,
-          pubdate: _result.pubdate,
-          summary: _result.summary
-        })
-        $Message({
-          content: '获取成功',
-          type: 'success'
-        });
-      },
-      complete() {
-        _this.setData({ spinShow: false })
+        _this.setData({ isshow: true })
       }
     })
   },
@@ -81,7 +60,7 @@ Page({
   },
   submit() {
     $Message({
-      content: '上架成功',
+      content: '归还成功',
       type: 'success'
     });
   }

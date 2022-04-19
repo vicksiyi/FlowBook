@@ -1,0 +1,2 @@
+<!--pages/lists/bookrack/borrowBook/index.wxml-->
+<m-scan bindtap="scan"></m-scan>

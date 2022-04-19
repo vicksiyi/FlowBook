@@ -1,0 +1,16 @@
+/* components/scan/index.wxss */
+.scan {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  width: 600rpx;
+  height: 400rpx;
+  margin: 20rpx auto;
+  text-align: center;
+  padding: 20rpx;
+  color: #dddee1;
+}
+
+.scan image {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 50rpx 150rpx 0rpx 150rpx;
+}

@@ -1,13 +1,10 @@
-// components/book-rel-user/index.js
+// components/scan/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    back: {
-      type: Boolean,
-      value: false
-    }
+
   },
 
   /**

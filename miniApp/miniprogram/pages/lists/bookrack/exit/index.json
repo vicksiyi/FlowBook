@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "m-book": "../../../../components/book/index",
+    "i-drawer": "../../../../dist/drawer/index",
+    "i-button": "../../../../dist/button/index"
+  },
+  "navigationBarTitleText": "我的上架"
+}

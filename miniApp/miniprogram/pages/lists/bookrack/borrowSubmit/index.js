@@ -18,5 +18,10 @@ Page({
   },
   bindDateChange(res) {
     this.setData({ date: res.detail.value })
+  },
+  handleClick() {
+    wx.navigateBack({
+      delta: 3
+    })
   }
 })

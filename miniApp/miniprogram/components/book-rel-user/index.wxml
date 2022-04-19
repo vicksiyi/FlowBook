@@ -8,7 +8,7 @@
       <span>所属用户: </span> TWei
     </view>
     <view class="item">
-      <span>借阅限期: </span> 至2022/5/1
+      <span>{{back?"归还时间":"借阅限期:"}} </span> 至2022/5/1
     </view>
     <view class="item">
       <span>状态: </span> 已借出

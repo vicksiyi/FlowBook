@@ -1,0 +1,16 @@
+/* pages/lists/bookrack/exit/index.wxss */
+.manage{
+  padding: 20rpx;
+  background: #fff;
+  position: fixed;
+  text-align: center;
+}
+.btn{
+  width: 200rpx;
+}
+.success-color{
+  color: #19be6b;
+}
+.warning-color{
+  color: #ff9900;
+}

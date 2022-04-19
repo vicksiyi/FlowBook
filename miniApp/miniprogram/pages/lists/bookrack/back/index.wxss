@@ -1,4 +1,4 @@
-/* pages/lists/bookrack/add/index.wxss */
+/* pages/lists/bookrack/back/index.wxss */
 .image-list .item {
   width: 720rpx;
   margin: 20rpx auto;

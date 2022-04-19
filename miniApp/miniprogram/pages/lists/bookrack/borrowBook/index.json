@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "m-scan": "../../../../components/scan/index"
+  },
+  "navigationBarTitleText": "扫码借书"
+}

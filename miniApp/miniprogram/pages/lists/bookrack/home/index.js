@@ -7,9 +7,9 @@ Page({
   data: {
     tools: [
       { title: "添", url: "../add/index" },
-      { title: "借", url: "" },
-      { title: "还", url: "" },
-      { title: "退", url: "" }],
+      { title: "借", url: "../borrowBook/index" },
+      { title: "还", url: "../back/index" },
+      { title: "退", url: "../exit/index" }],
     selected: false
   },
 

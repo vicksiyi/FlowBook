@@ -1,0 +1,5 @@
+<!--components/scan/index.wxml-->
+<view class="scan">
+  <image src="../../assets/images/otherIcon/scan.png">扫码上架</image>
+  扫码上架
+</view>
