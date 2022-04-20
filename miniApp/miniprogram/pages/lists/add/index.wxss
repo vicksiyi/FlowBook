@@ -1,1 +1,100 @@
 /* pages/lists/add/index.wxss */
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.search .search-input {
+  width: 550rpx;
+  padding: 10rpx;
+  color: #495060;
+}
+
+.search .search-btn {
+  width: 200rpx;
+}
+
+.search .search-ipt {
+  border: 1rpx solid #dddee1;
+  padding: 20rpx;
+}
+
+.btn {
+  width: 130rpx !important;
+  font-size: 25rpx;
+  padding: 10rpx;
+  height: 80rpx;
+  line-height: 60rpx;
+  margin-top: 10rpx;
+  background: #5cadff !important;
+}
+
+.btn-hover {
+  opacity: 0.5;
+}
+
+.i-btn {
+  line-height: 25px;
+}
+
+.model-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.model-bg .model {
+  background: #fff;
+  width: 500rpx;
+  padding: 40rpx;
+}
+
+.model-bg .model .tips {
+  text-align: center;
+  color: #ff9900;
+  font-size: 30rpx;
+}
+
+.model-bg .model .input {
+  margin: 20rpx;
+  border: 1rpx solid #dddee1;
+  padding: 20rpx;
+  color: #495060;
+}
+
+.model-bg .model .action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  line-height: 100rpx;
+  margin-top: 20rpx;
+}
+
+.model-bg .model .action .cancel {
+  width: 200rpx;
+  height: 100rpx;
+  border: 1rpx solid #dddee1;
+  background: #e9eaec;
+  color: #fff;
+}
+
+.hover-class {
+  opacity: 0.5;
+}
+
+.model-bg .model .action .ok {
+  width: 200rpx;
+  height: 100rpx;
+  border: 1rpx solid #dddee1;
+  background: #5cadff;
+  color: #fff;
+}

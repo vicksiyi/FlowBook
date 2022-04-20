@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-input": "../../../../dist/input/index",
+    "i-button": "../../../../dist/button/index",
+    "m-bookrack": "../../../components/bookrack/index"
+  },
+  "navigationBarTitleText": "加入书架"
 }

@@ -16,9 +16,10 @@
 .top-detail .logo {
   padding: 20rpx;
   width: 200rpx;
+  position: relative;
 }
 
-.top-detail .logo image {
+.top-detail .logo .logo-img {
   width: 160rpx;
   height: 160rpx;
   border-radius: 50%;
@@ -63,4 +64,12 @@
 .is-borrow {
   color: #ff9900;
   font-size: 28rpx;
+}
+
+.key {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: 170rpx;
+  left: 160rpx;
 }

@@ -1,2 +1,32 @@
 <!--pages/lists/add/index.wxml-->
-<text>pages/lists/add/index.wxml</text>
+<view class="search">
+  <view class="search-input">
+    <input class="search-ipt" placeholder="搜索名称" />
+  </view>
+  <view class="search-btn">
+    <button class="btn" loading="{{loading}}" hover-class="btn-hover" type="primary">搜索</button>
+  </view>
+</view>
+<view>
+<m-bookrack bindtap="show" data-Iskey="1" iskey="true" data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false" desc="广油信息技术网络工作室，为您提供的书架。坐标位于：实验楼6楼，703; 只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。">
+</m-bookrack>
+<m-bookrack bindtap="show" data-Iskey="0" data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false" desc="广油信息技术网络工作室，为您提供的书架。坐标位于：实验楼6楼，703; 只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。">
+</m-bookrack>
+<m-bookrack iskey="true" data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false">
+</m-bookrack>
+<m-bookrack data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false" desc="广油信息技术网络工作室，为您提供的书架。坐标位于：实验楼6楼，703; 只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。">
+</m-bookrack>
+</view>
+
+<view class="model-bg" wx:if="{{visible}}">
+  <view class="model">
+    <view class="tips">确定加入？</view>
+    <view class="input" wx:if="{{iskey}}">
+      <input class="passwd-pt" type="password" placeholder="请输入密码" />
+    </view>
+    <view class="action">
+      <view class="cancel" bindtap="cancel" hover-class="hover-class">取消</view>
+      <view class="ok" bindtap="submit" hover-class="hover-class">确认</view>
+    </view>
+  </view>
+</view>

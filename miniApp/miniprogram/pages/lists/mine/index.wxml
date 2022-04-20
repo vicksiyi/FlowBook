@@ -1,2 +1,3 @@
 <!--pages/lists/mine/index.wxml-->
-<text>pages/lists/mine/index.wxml</text>
+<m-bookrack bindtap="nav" data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false">
+</m-bookrack>

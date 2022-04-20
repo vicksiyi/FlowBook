@@ -23,6 +23,10 @@ Component({
     isBorrow: {
       type: Boolean,
       value: false
+    },
+    iskey:{
+      type: Boolean,
+      value: false
     }
   },
 

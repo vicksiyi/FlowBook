@@ -2,7 +2,8 @@
 <view class="bookrack">
   <view class="top-detail">
     <view class="logo">
-      <image src="{{logo}}"></image>
+      <image class="logo-img" src="{{logo}}"></image>
+      <image wx:if="{{iskey}}" class="key" src="../../assets/images/otherIcon/key.png"></image>
     </view>
     <view class="detail">
       <view class="name">

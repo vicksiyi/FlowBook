@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "m-bookrack": "../../../components/bookrack/index"
+  },
+  "navigationBarTitleText": "我的书架"
 }
