@@ -6,5 +6,8 @@
       <span>{{date ? '当前选择:':''}}{{date}}{{date?'-点击重新选择':'点击选择'}}-归还时间</span>
     </view>
   </picker>
-  <i-button bind:click="handleClick" style="margin-top:20rpx;" type="primary">马上借书</i-button>
 </i-panel>
+<i-panel title="借书位置">
+<map slot="footer" id="myMap" style="width: 700rpx;margin: auto; height: 300rpx;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" covers="{{covers}}" show-location></map>
+</i-panel>
+<i-button bind:click="handleClick" style="margin-top:20rpx;" type="primary">马上借书</i-button>

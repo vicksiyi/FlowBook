@@ -1,0 +1,61 @@
+/* pages/lists/manage/history/index.wxss */
+.book {
+  display: flex;
+  flex-direction: row;
+  background: #5cadff;
+  color: #fff;
+  width: 720rpx;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+}
+
+.book .avatar {
+  width: 200rpx;
+}
+
+.book .avatar image {
+  width: 120rpx;
+  height: 180rpx;
+  margin: 20rpx;
+}
+
+.book .detail {
+  width: 400rpx;
+  line-height: 55rpx;
+  font-size: 26rpx;
+}
+
+.book .detail .item {
+  display: -webkit-box;
+  /*设置为弹性盒子*/
+  -webkit-line-clamp: 1;
+  /*最多显示3行*/
+  overflow: hidden;
+  /*超出隐藏*/
+  text-overflow: ellipsis;
+  /*超出显示为省略号*/
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.book .detail .item span {
+  padding-right: 10rpx;
+}
+
+.book .manage {
+  width: 150rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book .manage .item {
+  width: 100rpx;
+  height: 60rpx;
+  background: #ff9900;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  font-size: 28rpx;
+}

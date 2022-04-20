@@ -5,7 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: ""
+    date: "",
+    latitude: 39.89631551,
+    longitude: 116.323459711,
+    markers: [{
+      id: 1,
+      latitude: 39.89631551,
+      longitude: 116.323459711,
+      name: '虎虎春联购'
+    }],
+    covers: [{
+      latitude: 39.89631551,
+      longitude: 116.323459711,
+      iconPath: '/image/location.png'
+    }, {
+      latitude: 39.89631551,
+      longitude: 116.323459711,
+      iconPath: '/image/location.png'
+    }]
   },
 
   /**

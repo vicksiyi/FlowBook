@@ -1,0 +1,141 @@
+/* pages/lists/manage/person/index.wxss */
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.search .search-input {
+  width: 550rpx;
+  padding: 10rpx;
+  color: #495060;
+}
+
+.search .search-btn {
+  width: 200rpx;
+}
+
+.search .search-ipt {
+  border: 1rpx solid #dddee1;
+  padding: 20rpx;
+}
+
+.search .btn {
+  width: 130rpx !important;
+  font-size: 25rpx;
+  padding: 10rpx;
+  height: 80rpx;
+  line-height: 60rpx;
+  margin-top: 10rpx;
+  background: #5cadff !important;
+}
+
+.btn-hover {
+  opacity: 0.5;
+}
+
+.i-btn {
+  line-height: 25px;
+}
+
+.sort {
+  margin-bottom: 90rpx;
+  overflow: scroll;
+}
+
+.sort .item {
+  width: 720rpx;
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.item {
+  height: 80rpx;
+  padding: 5rpx;
+}
+
+.sort .item:nth-child(1) .num {
+  background: #e7a542;
+  color: #fff;
+  border: 0;
+}
+
+.sort .item:nth-child(2) .num {
+  background: #db6434;
+  color: #fff;
+  border: 0;
+}
+
+.sort .item:nth-child(3) .num {
+  background: #909399;
+  color: #fff;
+  border: 0;
+}
+
+.item .num {
+  width: 70rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  border-radius: 50%;
+  /* background: #5cadff; */
+  border: 1rpx solid #909399;
+  color: #909399;
+  margin-left: 20rpx;
+  margin-top: 5rpx;
+}
+
+.item .avatar image {
+  width: 70rpx;
+  height: 70rpx;
+  margin-top: 5rpx;
+  border-radius: 50%;
+  margin-left: 10rpx;
+}
+
+.item .name {
+  width: 300rpx;
+  line-height: 80rpx;
+  margin-left: 20rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #495060;
+}
+
+.item .result {
+  line-height: 80rpx;
+  font-size: 36rpx;
+  color: #ff9900;
+}
+
+.mine .item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+  background: #f8f8f9;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+.manage{
+  padding: 20rpx;
+  background: #fff;
+  position: fixed;
+  text-align: center;
+}
+.manage-btn{
+  width: 200rpx;
+}
+.success-color{
+  color: #19be6b;
+}
+.warning-color{
+  color: #ff9900;
+}

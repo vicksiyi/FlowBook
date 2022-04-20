@@ -1,0 +1,70 @@
+<!--pages/lists/manage/history/index.wxml-->
+<view class="book">
+  <view class="avatar">
+    <image src="../../../../assets/temp/4.jpg"></image>
+  </view>
+  <view class="detail">
+    <view class="item">
+      <span>书名：</span> 《刑法中的同意制度》
+    </view>
+    <view class="item">
+      <span>归还时间:</span> 2022/04/05
+    </view>
+    <view class="item">
+      <span>是否过期:</span> <span wx:if="true" style="color: #ed3f14;">是</span>
+      <span wx:else style="color: #19be6b;">否</span>
+    </view>
+    <view class="item">
+      <span>催交次数:</span> 0
+    </view>
+  </view>
+  <view class="manage">
+    <view class="item" hover-class="hover-class">催还</view>
+  </view>
+</view>
+<view class="book">
+  <view class="avatar">
+    <image src="../../../../assets/temp/4.jpg"></image>
+  </view>
+  <view class="detail">
+    <view class="item">
+      <span>书名：</span> 《刑法中的同意制度》
+    </view>
+    <view class="item">
+      <span>归还时间:</span> 2022/04/05
+    </view>
+    <view class="item">
+      <span>是否过期:</span> <span wx:if="true" style="color: #ed3f14;">是</span>
+      <span wx:else style="color: #19be6b;">否</span>
+    </view>
+    <view class="item">
+      <span>催交次数:</span> 0
+    </view>
+  </view>
+  <view class="manage">
+    <view class="item" hover-class="hover-class">催还</view>
+  </view>
+</view>
+<view class="book">
+  <view class="avatar">
+    <image src="../../../../assets/temp/4.jpg"></image>
+  </view>
+  <view class="detail">
+    <view class="item">
+      <span>书名：</span> 《刑法中的同意制度》
+    </view>
+    <view class="item">
+      <span>归还时间:</span> 2022/04/05
+    </view>
+    <view class="item">
+      <span>是否过期:</span> <span wx:if="true" style="color: #ed3f14;">是</span>
+      <span wx:else style="color: #19be6b;">否</span>
+    </view>
+    <view class="item">
+      <span>催交次数:</span> 0
+    </view>
+  </view>
+  <view class="manage">
+    <view class="item" hover-class="hover-class">催还</view>
+  </view>
+</view>

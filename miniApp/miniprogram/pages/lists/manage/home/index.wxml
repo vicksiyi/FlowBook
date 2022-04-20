@@ -1,1 +1,9 @@
 <!--pages/lists/manage/home/index.wxml-->
+<view class="tools">
+  <view wx:for="{{tools}}" bindtap="nav" data-Url="{{item.url}}" class="item" hover-class="hover-class">
+    <view class="logo">
+      <image src="{{item.logo}}"></image>
+    </view>
+    <view class="title">{{item.title}}</view>
+  </view>
+</view>

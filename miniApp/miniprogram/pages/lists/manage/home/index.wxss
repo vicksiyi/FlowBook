@@ -1,1 +1,28 @@
 /* pages/lists/manage/home/index.wxss */
+.tools {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.tools .item .logo {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.tools .item .logo image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx;
+}
+
+.tools .item .title{
+  text-align: center;
+  font-size: 26rpx;
+  color: #495060;
+}
+
+.hover-class{
+  opacity: 0.5;
+}

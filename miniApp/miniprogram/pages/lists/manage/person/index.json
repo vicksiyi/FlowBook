@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "i-drawer": "../../../../dist/drawer/index",
+    "i-button": "../../../../dist/button/index"
+  },
+  "navigationBarTitleText": "人员管理",
+  "disableScroll": true
+}
