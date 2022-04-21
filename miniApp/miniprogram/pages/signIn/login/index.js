@@ -6,7 +6,7 @@ Page({
     number: "",
     password: "",
     current: 'tab1',
-    phone: "13336535215"
+    email: "zeroicework@163.com"
   },
   handleChange({ detail }) {
     this.setData({

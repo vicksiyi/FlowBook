@@ -1,13 +1,13 @@
 <i-tabs current="{{ current }}" bindchange="handleChange">
   <i-tab key="tab1" title="账号密码">
   </i-tab>
-  <i-tab key="tab2" title="短信验证">
+  <i-tab key="tab2" title="邮箱验证">
   </i-tab>
 </i-tabs>
 <view wx:if="{{current == 'tab1'}}" class="input-container">
   <view class="input-row">
     <image src="../../../assets/images/otherIcon/input-user.png" class='input-icon'></image>
-    <input value="{{number}}" placeholder-class="phcolor" bindinput="numberChange" class="input-text" type="number" placeholder="请输入手机号/邮箱号" />
+    <input value="{{number}}" placeholder-class="phcolor" bindinput="numberChange" class="input-text" type="number" placeholder="请输入邮箱号" />
   </view>
   <view class="input-line"></view>
   <view class="input-row">
@@ -18,7 +18,7 @@
 <view wx:if="{{current == 'tab2'}}">
   <view class="send-code">
     <view class="send-code-input">
-      <i-input value="{{ phone }}" placeholder="请输入手机号" />
+      <i-input value="{{ email }}" placeholder="请输入邮箱号" />
     </view>
     <view style="margin-left:20rpx;height: 70rpx;">
       <button class="account-login-btn send-btn" bind:click="sendCode">发送</button>
