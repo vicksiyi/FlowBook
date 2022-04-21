@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "i-panel": "../../../../dist/panel/index",
+    "i-input": "../../../../dist/input/index"
+  },
   "navigationBarTitleText": "加入方式管理"
 }

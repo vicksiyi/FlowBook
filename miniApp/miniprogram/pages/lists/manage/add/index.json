@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "i-panel": "../../../../dist/panel/index",
+    "i-input": "../../../../dist/input/index",
+    "i-button": "../../../../dist/button/index",
+    "i-spin": "../../../../dist/spin/index"
+  },
+  "navigationBarTitleText": "创建书架"
+}

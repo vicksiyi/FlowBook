@@ -1,1 +1,19 @@
 /* pages/lists/manage/location/index.wxss */
+.location .btn {
+  width: 130rpx !important;
+  font-size: 25rpx;
+  padding: 10rpx;
+  height: 80rpx;
+  line-height: 60rpx;
+  margin-top: 10rpx;
+  background: #5cadff !important;
+}
+
+.btn-hover {
+  opacity: 0.5;
+}
+
+.location{
+  display: flex;
+  flex-direction: row;
+}

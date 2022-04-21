@@ -1,2 +1,12 @@
 <!--pages/lists/manage/addtype/index.wxml-->
-<text>pages/lists/manage/addtype/index.wxml</text>
+<i-panel title="密码管理">
+  <view class="tips">是否设置密码: <span>否</span></view>
+  <view class="passwd">
+    <view class="ipt">
+      <i-input type="password" placeholder="请输入密码" />
+    </view>
+    <view>
+      <button class="btn" hover-class="btn-hover" type="primary">更新</button>
+    </view>
+  </view>
+</i-panel>

@@ -1,3 +1,8 @@
 <!--pages/lists/mine/index.wxml-->
-<m-bookrack bindtap="nav" data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false">
+<m-bookrack wx:for="{{[1,1,1,1,1,1,1]}}" bindtap="nav" data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false">
 </m-bookrack>
+
+<!-- 添加按钮 -->
+<view bindtap="add" class="add">
+  <image src="../../../assets/images/otherIcon/add.png"></image>
+</view>

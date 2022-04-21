@@ -1,0 +1,14 @@
+<!--pages/lists/manage/add/index.wxml-->
+<i-panel title="书架logo">
+  <view bindtap="upload" class="logo-add">
+    <image wx:if="{{logo}}" src="{{logo}}"></image>
+    <image wx:else src="../../../../assets/images/otherIcon/add.png"></image>
+  </view>
+</i-panel>
+<i-panel title="书架信息">
+  <i-input value="{{ title }}" title="书架名称" placeholder="名称" />
+  <i-input value="{{ desc }}" type="textarea" title="书架描述" placeholder="请输入描述(200字以内)" maxlength="50" />
+  <i-input value="{{ passwd }}" title="书架密码" placeholder="默认为空/空表示公开书架" />
+</i-panel>
+<i-button bind:click="add" type="primary">创建书架</i-button>
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

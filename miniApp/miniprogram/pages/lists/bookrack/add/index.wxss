@@ -4,6 +4,24 @@
   margin: 20rpx auto;
 }
 
-.image-list .item image{
+.image-list .item image {
   width: 720rpx;
+}
+
+.max-time {
+  margin: 20rpx;
+}
+
+.max-time image {
+  width: 40rpx;
+  height: 40rpx;
+  padding-right: 20rpx;
+  margin-left: 20rpx;
+}
+
+.max-time .select-time span {
+  height: 40rpx;
+  line-height: 30rpx;
+  font-size: 25rpx;
+  color: #80848f;
 }

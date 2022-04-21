@@ -1,0 +1,39 @@
+/* pages/lists/manage/books/index.wxss */
+.top {
+  padding: 20rpx;
+  color: #495060;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.top span {
+  color: #ff9900;
+  font-size: 40rpx;
+}
+
+.line {
+  height: 1rpx;
+  width: 600rpx;
+  margin: 20rpx auto;
+  background: #e9eaec;
+}
+
+.list{
+  max-height: 600rpx;
+  overflow-y: scroll;
+}
+.manage{
+  padding: 20rpx;
+  background: #fff;
+  position: fixed;
+  text-align: center;
+}
+.btn{
+  width: 200rpx;
+}
+.success-color{
+  color: #19be6b;
+}
+.warning-color{
+  color: #ff9900;
+}

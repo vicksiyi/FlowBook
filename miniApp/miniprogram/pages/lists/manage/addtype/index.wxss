@@ -1,1 +1,37 @@
 /* pages/lists/manage/addtype/index.wxss */
+.passwd {
+  display: flex;
+  flex-direction: row;
+  width: 720rpx;
+  margin: 20rpx auto;
+}
+
+.passwd .ipt {
+  width: 500rpx;
+  margin: auto;
+  border: 1rpx solid #e9eaec;
+}
+
+.passwd .btn {
+  width: 130rpx !important;
+  font-size: 25rpx;
+  padding: 10rpx;
+  height: 80rpx;
+  line-height: 60rpx;
+  margin-top: 10rpx;
+  background: #5cadff !important;
+}
+
+.btn-hover {
+  opacity: 0.5;
+}
+
+.tips {
+  padding: 20rpx;
+  color: #495060;
+}
+
+.tips span{
+  color: #ff9900;
+  font-size: 40rpx;
+}

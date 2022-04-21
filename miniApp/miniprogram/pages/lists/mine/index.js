@@ -18,5 +18,10 @@ Page({
     wx.navigateTo({
       url: '../manage/home/index',
     })
+  },
+  add(){
+    wx.navigateTo({
+      url: '../manage/add/index',
+    })
   }
 })

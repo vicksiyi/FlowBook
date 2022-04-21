@@ -4,6 +4,7 @@
     "i-message": "../../../../dist/message/index",
     "i-spin": "../../../../dist/spin/index",
     "i-button": "../../../../dist/button/index",
-    "m-scan": "../../../../components/scan/index"
+    "m-scan": "../../../../components/scan/index",
+    "i-input": "../../../../dist/input/index"
   }
 }

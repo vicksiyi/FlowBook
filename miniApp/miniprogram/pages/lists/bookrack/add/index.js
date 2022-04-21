@@ -16,7 +16,8 @@ Page({
     pubdate: "",
     summary: "",
     spinShow: false,
-    images: []
+    images: [],
+    date: ""
   },
 
   /**

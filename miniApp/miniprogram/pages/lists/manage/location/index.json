@@ -1,4 +1,8 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "i-panel": "../../../../dist/panel/index",
+    "i-button": "../../../../dist/button/index",
+    "i-input": "../../../../dist/input/index"
+  },
   "navigationBarTitleText": "位置管理"
 }

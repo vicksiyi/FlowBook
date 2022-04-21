@@ -3,6 +3,17 @@
 <m-scan bindtap="scan"></m-scan>
 <view wx:if="{{isbn}}">
   <m-book url="{{url}}" title="{{title}}" author="{{author}}" isbn="{{isbn}}" publisher="{{publisher}}" pubdate="{{pubdate}}" summary="{{summary}}"></m-book>
+  <view class="max-time">
+    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class="select-time">
+        <image src="../../../../assets/images/otherIcon/time.png"></image>
+        <span>{{date ? '当前选择:':''}}{{date}}{{date?'-点击重新选择':'点击选择'}}-归还时间</span>
+      </view>
+    </picker>
+  </view>
+  <view class="desc">
+    <i-input value="{{ desc }}" type="textarea" title="备注" placeholder="请输入备注(最多200字)" maxlength="200" />
+  </view>
   <view class="add">
     <i-button bind:click="addImage" type="primary">添加图片</i-button>
   </view>
