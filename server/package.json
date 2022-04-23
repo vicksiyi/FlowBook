@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "emailjs": "^3.7.0",
+    "express": "^4.17.2",
+    "js-md5": "^0.7.3",
+    "mysql": "^2.18.1",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "ua-parser-js": "^1.0.2",
+    "urlencode": "^1.1.0"
+  }
+}

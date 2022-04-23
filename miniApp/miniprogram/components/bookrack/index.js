@@ -24,7 +24,7 @@ Component({
       type: Boolean,
       value: false
     },
-    iskey:{
+    iskey: {
       type: Boolean,
       value: false
     }
@@ -41,6 +41,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
-  }
+    test() {
+      this.triggerEvent('click')
+    }
+  },
 })

@@ -15,7 +15,6 @@ Page({
 
   },
   onAccountLogin: function () {
-    console.log(123)
     wx.navigateTo({
       url: "../login/index",
     });

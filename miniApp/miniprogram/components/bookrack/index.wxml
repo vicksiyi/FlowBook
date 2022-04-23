@@ -1,9 +1,9 @@
 <!--components/bookrack/index.wxml-->
 <view class="bookrack">
   <view class="top-detail">
-    <view class="logo">
+    <view bindtap="test" class="logo">
       <image class="logo-img" src="{{logo}}"></image>
-      <image wx:if="{{iskey}}" class="key" src="../../assets/images/otherIcon/key.png"></image>
+      <image  wx:if="{{iskey}}" class="key" src="../../assets/images/otherIcon/key.png"></image>
     </view>
     <view class="detail">
       <view class="name">

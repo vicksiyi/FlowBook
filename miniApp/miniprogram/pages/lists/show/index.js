@@ -19,5 +19,8 @@ Page({
     wx.navigateTo({
       url: `../bookrack/home/index?title=${title}`,
     })
+  },
+  click(){
+    console.log("粗糙度");
   }
 })
