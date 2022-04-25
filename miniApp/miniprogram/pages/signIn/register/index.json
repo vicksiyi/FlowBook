@@ -2,7 +2,8 @@
   "usingComponents": {
     "i-panel": "../../../dist/panel/index",
     "i-input": "../../../dist/input/index",
-    "i-message": "../../../dist/message/index"
+    "i-message": "../../../dist/message/index",
+    "i-spin": "../../../dist/spin/index"
   },
   "navigationBarTitleText": "注册"
 }

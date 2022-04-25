@@ -1,11 +1,14 @@
 // miniprogram/pages/signIn/index/index.js
+const { $Message } = require("../../../dist/base/index");
+const { authlogin, oauthToken } = require("../../../utils/api/oauth");
+let time = null;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    loading: false
   },
 
   /**
@@ -20,18 +23,72 @@ Page({
     });
   },
   getUserProfile() {
-    wx.navigateTo({
-      url: '../../index/home/index',
+    let _this = this;
+    wx.getUserProfile({
+      desc: '使用过程中需要使用',
+      success: (res) => {
+        wx.setStorage({
+          key: "userInfo",
+          data: JSON.stringify(res.userInfo),
+          success: async function () {
+            _this.auth();
+          }
+        })
+      },
+      fail: function (err) {
+        $Message({
+          content: '用户拒绝',
+          type: 'warning'
+        });
+      }
     })
+  },
+  async auth() {
+    let _this = this;
+    this.setData({ loading: true });
+    let _reuslt = await authlogin();
+    if (_reuslt.code == 301) { // 未注册跳转
+      $Message({
+        content: '请先注册',
+        type: 'warning'
+      });
+      time = setTimeout(() => {
+        wx.navigateTo({
+          url: '../register/index',
+        })
+        _this.setData({ loading: false });
+      }, 500)
+    }else if(_reuslt.code == 400) {
+      $Message({
+        content: '未知错误',
+        type: 'error'
+      });
+      _this.setData({ loading: false });
+    } else { // 授权成功跳转
+      $Message({
+        content: '授权成功',
+        type: 'success'
+      });
+      wx.setStorageSync('_token', _reuslt.token);
+      time = setTimeout(() => {
+        wx.redirectTo({
+          url: '../../index/home/index',
+        })
+        _this.setData({ loading: false });
+      }, 500)
+    }
   },
   navProtocol() {
     wx.navigateTo({
       url: '../../attention/protocol/index',
     })
   },
-  navPrivacy(){
+  navPrivacy() {
     wx.navigateTo({
       url: '../../attention/privacy/index',
     })
+  },
+  onHide() {
+    if (time) clearTimeout(time);
   }
 })

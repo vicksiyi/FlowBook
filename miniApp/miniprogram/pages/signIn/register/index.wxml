@@ -1,4 +1,4 @@
-<view wx:if="{{!isOauth}}">
+<view wx:if="{{!userInfo.avatarUrl}}">
   <button style="margin-top: 20rpx;" class="key-login-btn" bindtap="getUser" open-type="getUserInfo">获取头像&昵称</button>
 </view>
 <view wx:else>
@@ -17,29 +17,8 @@
 <view class="panel">
   <i-panel title="个人简介">
     <view class="text-box">
-      <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{msg}}" bindinput='inputText' placeholder="请输入个人简介..."></textarea>
+      <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{desc}}" bindinput='inputText' placeholder="请输入个人简介..."></textarea>
       <span class="wordwrap">{{number}}/{{maxNumber}}</span>
-    </view>
-  </i-panel>
-</view>
-<!-- 手机号验证 -->
-<view class="panel">
-  <i-panel title="手机号验证*">
-    <view class="phone-oauth">
-      <view class="input">
-        <i-input value="{{ phone }}" bind:change="phoneChange" placeholder="请输入手机号" />
-      </view>
-      <view class="send">
-        <button wx:if="{{!isSendPhone}}" bindtap="sendPhone" size="mini" style="background:#2DB7F5;color:#fff;line-height:68rpx;margin-top:10rpx;font-size:26rpx;">
-          发送验证码
-        </button>
-        <button wx:else size="mini" disabled="true" style="background:#bbbec4;color:#fff;line-height:68rpx;margin-top:10rpx;">
-          {{phoneNum}}
-        </button>
-      </view>
-    </view>
-    <view class="code">
-      <i-input value="{{ phoneCode }}" bind:change="phoneCodeChange" type="number" title="验证码" placeholder="请输入手机号验证码" />
     </view>
   </i-panel>
 </view>
@@ -67,3 +46,4 @@
 <button class="key-login-btn" bindtap="submit" style="margin-top:30rpx;margin-bottom:30rpx;">
   注册
 </button>
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>

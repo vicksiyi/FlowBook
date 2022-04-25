@@ -1,29 +1,27 @@
 // const get = require("../../../utils/get");
 const app = getApp();
 var emailTime = null;
+let time = null;
 const { $Message } = require("../../../dist/base/index");
-// const getRequest = require("../../../utils/requests");
+const getRandomStr = require("../../../utils/utils").getRandomStr;
+const { sendemail, register } = require("../../../utils/api/oauth");
+const md5 = require('../../../utils/md5');
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    school: "",
     maxNumber: 100, //可输入最大字数
     number: 0, //已输入字数
-    msg: "",
+    desc: "",
     userInfo: {},
-    studentId: "",
     password: "",
     password2: "",
-    phone: "",
-    email: "1724264854@qq.com",
-    phoneCode: "",
-    emailCode: "2045",
-    isSendPhone: false,
+    email: "",
+    emailCode: "",
     isSendEmail: false,
     emailNum: 60,
-    isOauth: false
+    loading: false
   },
 
   /**
@@ -31,11 +29,12 @@ Page({
    */
   onLoad: async function (options) {
     let _this = this;
-
-  },
-  onShow: function () {
-    let _this = this;
-
+    let userInfo = wx.getStorageSync('userInfo');
+    if (userInfo) {
+      _this.setData({
+        userInfo: JSON.parse(userInfo)
+      })
+    }
   },
   inputText: function (e) {
     let _this = this;
@@ -49,30 +48,63 @@ Page({
     }
     this.setData({
       number: len,
-      msg: value,
+      desc: value,
     });
   },
-  submit: function () {
+  submit: async function () {
     let _this = this;
-    console.log("submit")
+    let { avatarUrl, nickName } = this.data.userInfo;
+    let { password, password2, email, emailCode, desc } = this.data;
+    if (!avatarUrl || !nickName || !password || !password2 || !email || !emailCode) {
+      $Message({ content: '请填写必要字段', type: 'warning' });
+      return;
+    }
+    const reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    if (!reg.test(email)) {
+      $Message({ content: '邮箱格式有问题', type: 'warning' });
+      return;
+    }
+    if (password != password2) {
+      $Message({ content: '前后两次密码不一样', type: 'warning' });
+      return;
+    }
+    password = md5(password);
+    this.setData({ loading: true });
+    let _result = await register({
+      avatarUrl: avatarUrl,
+      nickName: nickName,
+      password: password,
+      email: email,
+      emailCode: emailCode,
+      desc: desc
+    });
+    if (_result.code != 200) {
+      $Message({ content: _result.msg, type: 'error' });
+      this.setData({ loading: false });
+      return;
+    }
+
+    this.setData({ loading: false });
   },
   sendEmail: async function () {
     let _this = this;
+    let email = this.data.email;
+    const reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    if (!reg.test(email)) {
+      $Message({ content: '邮箱格式有问题', type: 'warning' });
+      return;
+    }
     wx.showLoading({
       title: "正在发送",
       mask: true,
     });
-    // let data = {
-    //   url: `http://${app.ip}:${app.port}/oauths/sendEmail`,
-    //   method: "post",
-    //   item: {
-    //     email: _this.data.email,
-    //   },
-    // };
-    // let result = await getRequest.Request(data, () => {
+    let _email = await sendemail(email);
+    if (_email.code != 200) {
+      $Message({ content: _email.msg, type: 'error' });
+      wx.hideLoading();
+      return;
+    }
     wx.hideLoading();
-    // });
-    // if (result.data.type == "success") {
     _this.setData({
       isSendEmail: true,
       emailNum: 60,
@@ -93,26 +125,15 @@ Page({
       content: "邮箱验证码发送成功",
       type: "success",
     });
-    // }
   },
   emailCodeChange: function (e) {
     this.setData({
       emailCode: e.detail.detail.value,
     });
   },
-  phoneCodeChange: function (e) {
-    this.setData({
-      phoneCode: e.detail.detail.value,
-    });
-  },
   nickNameChange: function (e) {
     this.setData({
       [`userInfo.nickName`]: e.detail.detail.value,
-    });
-  },
-  studentIdChange: function (e) {
-    this.setData({
-      studentId: e.detail.detail.value,
     });
   },
   passwordChange: function (e) {
@@ -125,43 +146,35 @@ Page({
       password2: e.detail.detail.value,
     });
   },
-  schoolChange: function (e) {
-    this.setData({
-      school: e.detail.detail.value,
-    });
-  },
-  phoneChange: function (e) {
-    this.setData({
-      phone: e.detail.detail.value,
-    });
-  },
-  phoneCodeChange: function (e) {
-    this.setData({
-      phoneCode: e.detail.detail.value,
-    });
-  },
   emailChange: function (e) {
     this.setData({
       email: e.detail.detail.value,
     });
   },
-  phoneChange: function (e) {
-    this.setData({
-      phone: e.detail.detail.value,
-    });
-  },
-  onShow: async function () {
-    let school = await wx.getStorageSync("schools");
-    if (school) {
-      (school = JSON.parse(school)),
-        this.setData({
-          schoolId: school,
-          school: school.name,
-        });
-    }
-  },
   modifyAvatar: function () {
-    console.log("修改头像")
+    let _this = this;
+    wx.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      sourceType: ['camera'],
+      camera: 'back',
+      success(res) {
+        _this.setData({ loading: true })
+        let suffix = '.jpeg'
+        let cloudPath = 'images/' + getRandomStr() + suffix;
+        wx.cloud.uploadFile({
+          cloudPath: cloudPath,
+          filePath: res.tempFiles[0].tempFilePath,
+          success: res => {
+            console.log(res.fileID);
+            _this.setData({ ['userInfo.avatarUrl']: res.fileID });
+          },
+          complete() {
+            _this.setData({ loading: false })
+          }
+        })
+      }
+    })
   },
   getUser: function () {
     let _this = this;
@@ -172,26 +185,23 @@ Page({
           key: "userInfo",
           data: JSON.stringify(res.userInfo),
           success: function () {
-            $Message({
-              content: '授权成功',
-              type: 'success'
-            })
+            $Message({ content: '授权成功', type: 'success' })
             _this.setData({
-              userInfo: res.userInfo,
-              isOauth: true
+              userInfo: res.userInfo
             })
           }
         })
       },
       fail: function (err) {
-        $Message({
-          content: '用户拒绝',
-          type: 'warning'
-        });
+        $Message({ content: '用户拒绝', type: 'warning' });
       }
     })
   },
   bindgetuserinfo: function (res) {
     console.log(res)
+  },
+  onHide() {
+    clearTimeout(time);
+    clearTimeout(emailTime);
   }
 });

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/signIn/register/index",
     "pages/signIn/index/index",
     "pages/lists/manage/add/index",
     "pages/lists/mine/index",
@@ -21,7 +22,6 @@
     "pages/lists/bookrack/borrow/index",
     "pages/lists/bookrack/borrowSubmit/index",
     "pages/lists/bookrack/detail/index",
-    "pages/signIn/register/index",
     "pages/lists/sort/index",
     "pages/common/bookGroupList/index",
     "pages/signIn/login/index",
@@ -34,12 +34,6 @@
     "navigationBarBackgroundColor": "#2d8cf0",
     "navigationBarTitleText": "FlowBook",
     "navigationBarTextStyle": "white"
-  },
-  "plugins": {
-    "kdPlugin": {
-      "version": "1.1.2",
-      "provider": "wx6885acbedba59c14"
-    }
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",
