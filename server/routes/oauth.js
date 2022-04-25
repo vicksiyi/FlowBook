@@ -41,6 +41,7 @@ router.get('/authlogin/:code', async (req, res) => {
             res.json({ code: 400, msg: '未知错误' })
             throw new Error(err);
         }))[0];
+        console.log(_user);
         if (_user.num === 0) { //未注册
             res.json({ code: 301, msg: '未注册' })
         } else {
@@ -99,7 +100,7 @@ router.post('/emaillogin', async (req, res) => {
             throw new Error(err);
         });
         let _emailCode = await redisHandle.getKey(`login:${email}`);
-        console.log(emailCode,_emailCode);
+        console.log(emailCode, _emailCode);
         if (_user.length === 0) { //未注册
             res.json({ code: 400, msg: '用户不存在' })
         } else if (_emailCode != null && emailCode == _emailCode) {
@@ -153,7 +154,7 @@ router.post('/register', async (req, res) => {
     const _result = await oauthCode(code);
     if (_result.openid) {
         let _emailCode = await redisHandle.getKey(`register:${email}`);
-        if (_emailCode == null && emailCode != _emailCode) {
+        if (_emailCode == null || emailCode != _emailCode) {
             res.json({ code: 400, msg: '验证码不正确' })
             return;
         }
@@ -204,7 +205,7 @@ router.put('/sendemail/:email', async (req, res) => {
 // $routes /oauth/oauthtoken
 // 验证token
 // @access private
-router.get('/oauthtoken', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.put('/oauthtoken', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.send({
         code: 200
     })

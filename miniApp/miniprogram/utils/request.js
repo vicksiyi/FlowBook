@@ -21,9 +21,9 @@ class HttpRequest {
         wx.request({
           ...options,
           success(res) {
-            if (res.statusCode == 401 && getCurrentPages()[0].route != "pages/signIn/login/index") {
+            if (res.statusCode == 401 && getCurrentPages()[0].route != "pages/signIn/index/index") {
               wx.reLaunch({
-                url: '../pages/signIn/login/index',
+                url: '/pages/signIn/index/index',
               })
             }
             resolve(res);

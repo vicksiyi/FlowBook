@@ -17,9 +17,7 @@ Page({
   onLoad: async function (options) {
     let _token = wx.getStorageSync('_token');
     if (_token) {
-      this.setData({ loading: true })
       let _result = await oauthtoken(_token);
-      this.setData({ loading: false })
       if (_result) {
         wx.redirectTo({
           url: '../../index/home/index',

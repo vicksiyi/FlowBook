@@ -26,7 +26,7 @@
   <i-panel title="邮箱号验证">
     <view class="phone-oauth">
       <view class="input">
-        <i-input value="{{ email }}" bind:change="emailChange" placeholder="请输入邮箱号号" />
+        <i-input value="{{ email }}" bind:change="emailChange" placeholder="请输入邮箱号" />
       </view>
       <view class="send">
         <button wx:if="{{!isSendEmail}}" bindtap="sendEmail" size="mini" style="background:#2DB7F5;color:#fff;line-height:68rpx;margin-top:10rpx;font-size:26rpx;">

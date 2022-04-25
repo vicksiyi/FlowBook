@@ -83,7 +83,12 @@ Page({
       this.setData({ loading: false });
       return;
     }
-
+    $Message({ content: '注册成功', type: 'success' });
+    time = setTimeout(() => {
+      wx.redirectTo({
+        url: '../index/index',
+      })
+    }, 500)
     this.setData({ loading: false });
   },
   sendEmail: async function () {

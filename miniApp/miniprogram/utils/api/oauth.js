@@ -60,7 +60,8 @@ exports.oauthtoken = (token) => {
     axios.request(`/oauth/oauthtoken`, {
       header: {
         Authorization: token
-      }
+      },
+      method:'PUT'
     })
       .then((res) => {
         if (res.data.code == 200) { resolve(true); }
