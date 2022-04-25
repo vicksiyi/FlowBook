@@ -6,7 +6,8 @@
     "i-icon": "../../../dist/icon/index",
     "i-message": "../../../dist/message/index",
     "i-tabs": "../../../dist/tabs/index",
-    "i-tab": "../../../dist/tab/index"
+    "i-tab": "../../../dist/tab/index",
+    "i-spin": "../../../dist/spin/index"
   },
   "navigationBarTitleText": "登录"
 }

@@ -70,3 +70,52 @@ exports.oauthtoken = (token) => {
       })
   })
 }
+
+// 账号密码登录
+exports.accountlogin = async (data) => {
+  let code = await getLoginCode(); // 获取登录code
+  return new Promise((resolve, reject) => {
+    axios.request(`/oauth/accountlogin`, {
+      data: { ...data, code: code },
+      method: "POST"
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}
+
+// 验证码登录
+exports.emaillogin = async (data) => {
+  let code = await getLoginCode(); // 获取登录code
+  return new Promise((resolve, reject) => {
+    axios.request(`/oauth/emaillogin`, {
+      data: { ...data, code: code },
+      method: "POST"
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}
+
+// 登录验证码
+exports.sendloginemail = async (emdil) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/oauth/sendloginemail/${emdil}`, {
+      method: "PUT"
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}

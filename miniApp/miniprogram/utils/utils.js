@@ -7,3 +7,8 @@ exports.getRandomStr = function () {
   randomStr += new Date().getTime()
   return randomStr;
 }
+
+exports.checkEmail = function (email) {
+  const reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+  return reg.test(email);
+}

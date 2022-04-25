@@ -7,7 +7,7 @@
 <view wx:if="{{current == 'tab1'}}" class="input-container">
   <view class="input-row">
     <image src="../../../assets/images/otherIcon/input-user.png" class='input-icon'></image>
-    <input value="{{number}}" placeholder-class="phcolor" bindinput="numberChange" class="input-text" type="number" placeholder="请输入邮箱号" />
+    <input value="{{email}}" placeholder-class="phcolor" bindinput="emailChange" class="input-text" type="number" placeholder="请输入邮箱号" />
   </view>
   <view class="input-line"></view>
   <view class="input-row">
@@ -18,18 +18,19 @@
 <view wx:if="{{current == 'tab2'}}">
   <view class="send-code">
     <view class="send-code-input">
-      <i-input value="{{ email }}" placeholder="请输入邮箱号" />
+      <i-input value="{{ email }}" bind:change="emailChange2" placeholder="请输入邮箱号" />
     </view>
     <view style="margin-left:20rpx;height: 70rpx;">
-      <button class="account-login-btn send-btn" bind:click="sendCode">发送</button>
+      <button disabled="{{isSendEmail}}" class="account-login-btn send-btn" bindtap="sendCode">{{isSendEmail?emailNum:'发送'}}</button>
     </view>
   </view>
   <view class="auth-code">
     <view class="send-auth-input">
-      <i-input value="{{ code }}" placeholder="验证码" />
+      <i-input value="{{ emailCode }}" bind:change="emailCodeChange" placeholder="验证码" />
     </view>
   </view>
 </view>
 <button class="account-login-btn" bind:tap="toLogin">立即登录</button>
 <view class="login-way-text" bindtap="navRegister">注册</view>
 <i-message id="message" />
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>

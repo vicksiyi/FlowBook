@@ -1,6 +1,6 @@
 // miniprogram/pages/signIn/index/index.js
 const { $Message } = require("../../../dist/base/index");
-const { authlogin, oauthToken } = require("../../../utils/api/oauth");
+const { authlogin, oauthtoken } = require("../../../utils/api/oauth");
 let time = null;
 Page({
 
@@ -14,8 +14,28 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    let _token = wx.getStorageSync('_token');
+    if (_token) {
+      this.setData({ loading: true })
+      let _result = await oauthtoken(_token);
+      this.setData({ loading: false })
+      if (_result) {
+        wx.redirectTo({
+          url: '../../index/home/index',
+        })
+      } else {
+        $Message({
+          content: '请先登录',
+          type: 'warning'
+        });
+      }
+    } else {
+      $Message({
+        content: '请先登录',
+        type: 'warning'
+      });
+    }
   },
   onAccountLogin: function () {
     wx.navigateTo({
@@ -58,7 +78,7 @@ Page({
         })
         _this.setData({ loading: false });
       }, 500)
-    }else if(_reuslt.code == 400) {
+    } else if (_reuslt.code == 400) {
       $Message({
         content: '未知错误',
         type: 'error'

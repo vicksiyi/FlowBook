@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/signIn/register/index",
     "pages/signIn/index/index",
+    "pages/signIn/login/index",
+    "pages/signIn/register/index",
     "pages/lists/manage/add/index",
     "pages/lists/mine/index",
     "pages/lists/manage/home/index",
@@ -24,7 +25,6 @@
     "pages/lists/bookrack/detail/index",
     "pages/lists/sort/index",
     "pages/common/bookGroupList/index",
-    "pages/signIn/login/index",
     "pages/attention/privacy/index",
     "pages/attention/protocol/index"
   ],

@@ -41,7 +41,7 @@
     "ignoreUploadUnusedFiles": true,
     "useStaticServer": true
   },
-  "appid": "wx6ea4050fdf8acfb1",
+  "appid": "wxd9509968da5a390b",
   "projectname": "FlowBook",
   "libVersion": "2.22.0",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
