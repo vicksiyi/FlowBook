@@ -1,8 +1,12 @@
 <!--pages/lists/mine/index.wxml-->
-<m-bookrack wx:for="{{[1,1,1,1,1,1,1]}}" bindtap="nav" data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false">
-</m-bookrack>
+<scroll-view bindscrolltolower="scrolltolower" scroll-y="true" class="bookracks" style="height: {{height}}px;">
+  <m-bookrack wx:for="{{bookracks}}" logo="{{item.logo}}" bindtap="nav" data-Title="{{item.title}}" title="{{item.title}}" nickName="{{item.nick_name}}" desc="{{item.desc}}" isBorrow="是">
+  </m-bookrack>
+</scroll-view>
 
 <!-- 添加按钮 -->
 <view bindtap="add" class="add">
   <image src="../../../assets/images/otherIcon/add.png"></image>
 </view>
+<i-spin size="large" fix wx:if="{{ loading }}"></i-spin>
+<i-message id="message" />

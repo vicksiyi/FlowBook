@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/lists/mine/index",
+    "pages/lists/manage/add/index",
     "pages/signIn/index/index",
     "pages/signIn/login/index",
     "pages/signIn/register/index",
-    "pages/lists/manage/add/index",
-    "pages/lists/mine/index",
     "pages/lists/manage/home/index",
     "pages/lists/manage/addtype/index",
     "pages/lists/manage/location/index",
