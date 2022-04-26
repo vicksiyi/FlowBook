@@ -2,7 +2,10 @@
   "usingComponents": {
     "i-input": "../../../../dist/input/index",
     "i-button": "../../../../dist/button/index",
-    "m-bookrack": "../../../components/bookrack/index"
+    "i-message": "../../../../dist/message/index",
+    "m-bookrack": "../../../components/bookrack/index",
+    "i-load-more": "../../../dist/load-more/index",
+    "i-spin": "../../../dist/spin/index"
   },
   "navigationBarTitleText": "加入书架"
 }

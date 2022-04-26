@@ -44,10 +44,7 @@ Page({
           pubdate: _result.pubdate,
           summary: _result.summary
         })
-        $Message({
-          content: '获取成功',
-          type: 'success'
-        });
+        $Message({ content: '获取成功', type: 'success' });
       },
       complete() {
         _this.setData({ spinShow: false })

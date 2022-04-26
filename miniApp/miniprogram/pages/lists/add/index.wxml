@@ -1,22 +1,16 @@
 <!--pages/lists/add/index.wxml-->
 <view class="search">
   <view class="search-input">
-    <input class="search-ipt" placeholder="搜索名称" />
+    <input value="{{keyword}}" bindinput="keywordChange" class="search-ipt" placeholder="搜索名称" />
   </view>
   <view class="search-btn">
-    <button class="btn" loading="{{loading}}" hover-class="btn-hover" type="primary">搜索</button>
+    <button class="btn" loading="{{loading}}" bindtap="search" hover-class="btn-hover" type="primary">搜索</button>
   </view>
 </view>
-<view>
-<m-bookrack bindtap="show" data-Iskey="1" iskey="true" data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false" desc="广油信息技术网络工作室，为您提供的书架。坐标位于：实验楼6楼，703; 只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。">
-</m-bookrack>
-<m-bookrack bindtap="show" data-Iskey="0" data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false" desc="广油信息技术网络工作室，为您提供的书架。坐标位于：实验楼6楼，703; 只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。">
-</m-bookrack>
-<m-bookrack iskey="true" data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false">
-</m-bookrack>
-<m-bookrack data-Title="广油信息技术网络工作室" title="广油信息技术网络工作室" nickName="TWei" isBorrow="false" desc="广油信息技术网络工作室，为您提供的书架。坐标位于：实验楼6楼，703; 只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。只能借阅书架上存在的书籍，其余书籍不可出借。">
-</m-bookrack>
-</view>
+<scroll-view bindscrolltolower="scrolltolower" style="height: {{height}}px;" scroll-y="true">
+  <m-bookrack wx:for="{{bookracks}}" bindtap="show" data-Iskey="{{item.is_passwd}}" iskey="{{item.is_passwd}}" logo="{{item.logo}}" data-Title="{{item.title}}" title="{{item.title}}" nickName="{{item.nick_name}}" isBorrow="true" desc="{{item.desc}}">
+  </m-bookrack>
+</scroll-view>
 
 <view class="model-bg" wx:if="{{visible}}">
   <view class="model">
@@ -30,3 +24,5 @@
     </view>
   </view>
 </view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ loading }}"></i-spin>

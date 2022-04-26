@@ -14,6 +14,13 @@ class Bookrack extends Handle {
         order by time desc limit ${page * 10},${10};`;
         return super.commit(sql);
     }
+    // 查询通过title
+    search_title(keyword, page) {
+        const sql = `select b.*,u.nick_name from bookracks b inner join 
+        users u on u.open_id = b.author where title like '%${keyword}%'
+        order by time desc limit ${page * 10},${10};`;
+        return super.commit(sql);
+    }
 }
 const bookrack = new Bookrack();
 module.exports = bookrack;

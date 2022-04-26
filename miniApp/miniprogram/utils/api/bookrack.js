@@ -20,7 +20,7 @@ exports.create = async (data, token) => {
   })
 }
 
-// 创建书架
+// 获取我的书架
 exports.getminebookrack = async (token, page) => {
   return new Promise((resolve, reject) => {
     axios.request(`/bookrack/getminebookrack/${page}`, {
@@ -36,3 +36,19 @@ exports.getminebookrack = async (token, page) => {
       .catch(err => reject(err))
   })
 }
+
+// 搜索书架
+exports.search = (keyword, page, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/search?keyword=${keyword}&page=${page}`, {
+      header: {
+        Authorization: token
+      }
+    })
+      .then((res) => {
+        if (res.data) { resolve(res.data); }
+      })
+      .catch(err => reject(err))
+  })
+}
+

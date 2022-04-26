@@ -41,4 +41,24 @@ router.get('/getminebookrack/:page', passport.authenticate('jwt', { session: fal
     })
     res.send({ code: 200, data: _result })
 })
+
+// $routes /bookrack/search?
+// 查询书架
+// @access public
+router.get('/search', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    let { page, keyword } = req.query;
+    if (page < 1) res.send({ code: 400, msg: '页码错误' });
+    else page = page - 1;
+    let _result = await bookrack.search_title(keyword, page).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    _result.map((value) => {
+        value.time = utils.formatTimestamp(new Date(value.time).getTime());
+        value.is_passwd = value.passwd != '';
+        value.passwd = "";
+        return value;
+    })
+    res.send({ code: 200, data: _result })
+})
 module.exports = router;
