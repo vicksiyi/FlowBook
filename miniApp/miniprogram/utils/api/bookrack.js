@@ -1,6 +1,5 @@
 
 const axios = require("../request");
-
 // 创建书架
 exports.create = async (data, token) => {
   return new Promise((resolve, reject) => {
@@ -52,3 +51,19 @@ exports.search = (keyword, page, token) => {
   })
 }
 
+// 加入书架
+exports.joinbookrack = (id, passwd, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/joinbookrack`, {
+      data: { passwd: passwd, id: id },
+      header: {
+        Authorization: token,
+      },
+      method: 'POST'
+    })
+      .then((res) => {
+        if (res.data) { resolve(res.data); }
+      })
+      .catch(err => reject(err))
+  })
+}

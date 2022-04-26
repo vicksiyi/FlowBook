@@ -8,7 +8,7 @@
   </view>
 </view>
 <scroll-view bindscrolltolower="scrolltolower" style="height: {{height}}px;" scroll-y="true">
-  <m-bookrack wx:for="{{bookracks}}" bindtap="show" data-Iskey="{{item.is_passwd}}" iskey="{{item.is_passwd}}" logo="{{item.logo}}" data-Title="{{item.title}}" title="{{item.title}}" nickName="{{item.nick_name}}" isBorrow="true" desc="{{item.desc}}">
+  <m-bookrack wx:for="{{bookracks}}" bindtap="show" data-Id="{{item.uuid}}" data-Iskey="{{item.is_passwd}}" iskey="{{item.is_passwd}}" logo="{{item.logo}}" data-Title="{{item.title}}" title="{{item.title}}" nickName="{{item.nick_name}}" isBorrow="true" desc="{{item.desc}}">
   </m-bookrack>
 </scroll-view>
 
@@ -16,7 +16,7 @@
   <view class="model">
     <view class="tips">确定加入？</view>
     <view class="input" wx:if="{{iskey}}">
-      <input class="passwd-pt" type="password" placeholder="请输入密码" />
+      <input class="passwd-pt" value="{{passwd}}" bindinput="passwdChange" type="password" placeholder="请输入密码" />
     </view>
     <view class="action">
       <view class="cancel" bindtap="cancel" hover-class="hover-class">取消</view>

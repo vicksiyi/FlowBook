@@ -41,7 +41,6 @@ router.get('/authlogin/:code', async (req, res) => {
             res.json({ code: 400, msg: '未知错误' })
             throw new Error(err);
         }))[0];
-        console.log(_user);
         if (_user.num === 0) { //未注册
             res.json({ code: 301, msg: '未注册' })
         } else {
@@ -100,7 +99,6 @@ router.post('/emaillogin', async (req, res) => {
             throw new Error(err);
         });
         let _emailCode = await redisHandle.getKey(`login:${email}`);
-        console.log(emailCode, _emailCode);
         if (_user.length === 0) { //未注册
             res.json({ code: 400, msg: '用户不存在' })
         } else if (_emailCode != null && emailCode == _emailCode) {

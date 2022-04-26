@@ -61,4 +61,38 @@ router.get('/search', passport.authenticate('jwt', { session: false }), async (r
     })
     res.send({ code: 200, data: _result })
 })
+
+// $routes /bookrack/joinbookrack
+// 加入书架
+// @access public
+router.post('/joinbookrack', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    let { passwd, id } = req.body;
+    let { open_id } = req.user;
+    let _result = utils.toJson(await bookrack.query_bookrack_user(id, open_id).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    }))[0];
+    if (_result.num != 0) {
+        res.json({ code: 400, msg: '不可重复加入' });
+        return;
+    }
+    _result = await bookrack.query_bookrack(id).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    if (_result.length === 0) {
+        res.json({ code: 400, msg: '书架不存在' })
+        return;
+    }
+    _result = utils.toJson(_result)[0];
+    if (!_result.passwd || _result.passwd == passwd) {
+        _result = await bookrack.add_bookrack(id, open_id).catch(err => {
+            res.json({ code: 400, msg: '未知错误' })
+            throw new Error(err);
+        });
+        res.json({ code: 200 })
+    } else {
+        res.json({ code: 400, msg: '密码错误' });
+    }
+})
 module.exports = router;

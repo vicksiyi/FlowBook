@@ -1,6 +1,8 @@
 // pages/lists/add/index.js
 const { $Message } = require('../../../dist/base/index');
-const { search } = require("../../../utils/api/bookrack");
+const { search, joinbookrack } = require("../../../utils/api/bookrack");
+const md5 = require("../../../utils/md5");
+let time = null;
 Page({
 
   /**
@@ -14,7 +16,9 @@ Page({
     page: 1,
     islast: false,
     bookracks: [],
-    height: 0
+    height: 0,
+    passwd: "",
+    id: ""
   },
 
   /**
@@ -34,19 +38,29 @@ Page({
     })
   },
   show(res) {
-    const iskey = res.currentTarget.dataset.iskey;
+    const { iskey, id } = res.currentTarget.dataset;
     this.setData({
       iskey: iskey == '1' ? true : false,
-      visible: true
+      visible: true,
+      passwd: "",
+      id: id
     })
   },
-  submit() {
-    this.setData({
-      visible: false
-    })
-    wx.navigateBack({
-      delta: 1,
-    })
+  async submit() {
+    let { iskey, passwd, token, id } = this.data;
+    if (iskey && !passwd) {
+      $Message({ type: "warning", content: "请输入密码" });
+      return;
+    }
+    passwd = passwd ? md5(passwd) : "";
+    this.setData({ loading: true });
+    let _result = await joinbookrack(id, passwd, token);
+    this.setData({ loading: false, visible: false });
+    if (_result.code != 200) {
+      $Message({ type: "error", content: _result.msg });
+      return;
+    }
+    $Message({ type: "success", content: "成功加入" });
   },
   cancel() {
     this.setData({
@@ -94,5 +108,10 @@ Page({
   },
   scrolltolower() {
     this.search('', true);
+  },
+  passwdChange(e) {
+    this.setData({
+      passwd: e.detail.value
+    })
   }
 })
