@@ -1,5 +1,5 @@
 <!--pages/lists/bookrack/detail/index.wxml-->
-<m-book url="{{book.img}}" title="{{book.title}}" author="{{book.author}}" isbn="{{book.isbn}}" publisher="{{book.publisher}}" pubdate="{{publish_date}}" summary="{{book.desc}}">
+<m-book url="{{book.img}}" title="{{book.title}}" author="{{book.author}}" isbn="{{book.isbn}}" publisher="{{book.publisher}}" pubdate="{{book.publish_date}}" summary="{{book.desc}}">
 </m-book>
 <i-panel title="在架情况">
   <scroll-view bindscrolltolower="scrolltolower" style="height: 300px;" scroll-y="true">

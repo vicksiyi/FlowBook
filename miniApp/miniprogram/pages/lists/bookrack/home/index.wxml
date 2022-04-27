@@ -11,6 +11,7 @@
 
 <scroll-view bindscrolltolower="scrolltolower" style="height: {{height}}px;" scroll-y="true">
   <m-book wx:for="{{books}}" bindtap="nav" data-Item="{{item}}" url="{{item.img}}" title="{{item.title}}" author="{{item.author}}" isbn="{{item.isbn}}" publisher="{{item.publisher}}" pubdate="{{item.publish_date}}" summary="{{item.desc}}"></m-book>
+  <m-back-line></m-back-line>
 </scroll-view>
 <i-message id="message" />
 <i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>

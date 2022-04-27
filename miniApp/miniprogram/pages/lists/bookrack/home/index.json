@@ -2,6 +2,7 @@
   "usingComponents": {
     "m-book": "../../../../components/book/index",
     "i-message": "../../../../dist/message/index",
-    "i-spin": "../../../../dist/spin/index"
+    "i-spin": "../../../../dist/spin/index",
+    "m-back-line":"../../../../components/back-line/index"
   }
 }

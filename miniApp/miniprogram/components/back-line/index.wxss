@@ -1,0 +1,7 @@
+/* components/back-line/index.wxss */
+.back-line image {
+  width: 450rpx;
+  height: 40rpx;
+  margin-left: 150rpx;
+  margin-top: 20rpx;
+}

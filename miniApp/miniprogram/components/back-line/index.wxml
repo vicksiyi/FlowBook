@@ -1,0 +1,4 @@
+<!--components/back-line/index.wxml-->
+<view class="back-line">
+  <image src="../../assets/images/otherIcon/line.png"></image>
+</view>

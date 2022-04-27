@@ -2,6 +2,7 @@
 <scroll-view bindscrolltolower="scrolltolower" style="height: {{height}}px;" scroll-y="true">
   <m-bookrack wx:for="{{bookracks}}" bindtap="nav" data-Id="{{item.id}}" data-Uuid="{{item.uuid}}" data-Title="{{item.title}}" title="{{item.title}}" nickName="{{item.nick_name}}" isBorrow="true" desc="{{item.desc}}" logo="{{item.logo}}">
   </m-bookrack>
+  <m-back-line></m-back-line>
 </scroll-view>
 <i-message id="message" />
 <i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>
