@@ -4,6 +4,7 @@
   bottom: 20rpx;
   right: 30rpx;
   color: #fff;
+  z-index: 999;
 }
 
 @keyframes show {

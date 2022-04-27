@@ -81,6 +81,19 @@ class Bookrack extends Handle {
         ${publish_house_id},'${publish_date}','${img}');`;
         return super.commit(sql);
     }
+    // 获取书架上图书[唯一]
+    get_bookrack_books(bookrack_id, page) {
+        const sql = `select b.id,b.isbn,b.title,b.desc,a.name as author,
+        ph.name as publisher,publish_date,b.img from books b 
+        inner join (select DISTINCT b.isbn from bookrack_rel_book brb 
+        inner join books b on b.id = brb.book_id 
+        inner join bookrack_rel_user bru on bru.id = brb.bookrack_rel_user_id
+        where brb.status = 1 and bru.bookrack_id = '${bookrack_id}') disb on disb.isbn = b.isbn
+        inner join authors a on a.id = b.author_id
+        inner join publish_houses ph on ph.id = b.publish_house_id
+        limit ${page * 10},10`;
+        return super.commit(sql);
+    }
 }
 const bookrack = new Bookrack();
 module.exports = bookrack;

@@ -216,4 +216,22 @@ router.post('/upbook', passport.authenticate('jwt', { session: false }), async (
         transaction.rollback(err);
     });
 })
+
+// $routes /bookrack/getbookrackbooks?page&bookrack_id
+// 查询书架上面的图书【唯一】
+// @access private
+router.get('/getbookrackbooks', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    let { page, bookrack_id } = req.query;
+    if (page < 1) { res.send({ code: 400, msg: '页码错误' }); return; }
+    else page = page - 1;
+    let _result = await bookrack.get_bookrack_books(bookrack_id, page).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    _result = _result.map(value=>{
+        value.publish_date = utils.formatTimestamp(new Date(value.publish_date).getTime()).split(" ")[0];
+        return value;
+    })
+    res.json({ code: 200, data: _result });
+})
 module.exports = router;

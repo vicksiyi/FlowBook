@@ -100,3 +100,18 @@ exports.upbook = (data, token) => {
       .catch(err => reject(err))
   })
 }
+
+// 查询书架上面的图书【唯一】
+exports.getbookrackbooks = (page, bookrack_id, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/getbookrackbooks?page=${page}&bookrack_id=${bookrack_id}`, {
+      header: {
+        Authorization: token,
+      }
+    })
+      .then((res) => {
+        if (res.data) { resolve(res.data); }
+      })
+      .catch(err => reject(err))
+  })
+}
