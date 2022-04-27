@@ -83,3 +83,20 @@ exports.getjoinbookrack = (page, token) => {
       .catch(err => reject(err))
   })
 }
+
+// 上架图书
+exports.upbook = (data, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/upbook`, {
+      data: data,
+      header: {
+        Authorization: token,
+      },
+      method: 'POST'
+    })
+      .then((res) => {
+        if (res.data) { resolve(res.data); }
+      })
+      .catch(err => reject(err))
+  })
+}

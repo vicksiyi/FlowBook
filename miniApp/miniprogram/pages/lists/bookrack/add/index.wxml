@@ -12,7 +12,7 @@
     </picker>
   </view>
   <view class="desc">
-    <i-input value="{{ desc }}" type="textarea" title="备注" placeholder="请输入备注(最多200字)" maxlength="200" />
+    <i-input value="{{ msg }}" bind:change="msgChange" type="textarea" title="备注" placeholder="请输入备注(最多200字)" maxlength="200" />
   </view>
   <view class="add">
     <i-button bind:click="addImage" type="primary">添加图片</i-button>

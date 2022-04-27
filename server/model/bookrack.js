@@ -39,12 +39,46 @@ class Bookrack extends Handle {
     }
     // 获取我目前加入的书架
     get_join_bookrack(user_id, page) {
-        const sql = `select b.title,b.logo,b.desc,b.time,u.nick_name 
+        const sql = `select bru.id,b.uuid,b.title,b.logo,b.desc,b.time,u.nick_name 
         from bookrack_rel_user bru 
         inner join bookracks b on b.uuid = bru.bookrack_id 
         inner join users u on u.open_id = b.author
         where bru.user_id = '${user_id}' order by b.time desc  
         limit ${page * 10},10;`;
+        return super.commit(sql);
+    }
+    // 查看作者是否存在
+    get_author(name) {
+        const sql = `select * from authors where name = '${name}'`;
+        return super.commit(sql);
+    }
+    // 插入作者
+    insert_author(name) {
+        const sql = `insert into authors(name) value("${name}")`;
+        return super.commit(sql);
+    }
+    // 查看出版社是否存在
+    get_publisher(name) {
+        const sql = `select * from publish_houses where name = '${name}'`;
+        return super.commit(sql);
+    }
+    // 插入作者
+    insert_publisher(name) {
+        const sql = `insert into publish_houses(name) value("${name}")`;
+        return super.commit(sql);
+    }
+    // 获取书本
+    get_book(isbn) {
+        const sql = `select * from books where isbn = '${isbn}'`;
+        return super.commit(sql);
+    }
+    // 添加书本
+    insert_book(isbn, title, desc, author_id,
+        publish_house_id, publish_date, img) {
+        const sql = `insert into books(isbn,title,\`desc\`,author_id,
+            publish_house_id,publish_date,img)
+        values('${isbn}','${title}','${desc}',${author_id},
+        ${publish_house_id},'${publish_date}','${img}');`;
         return super.commit(sql);
     }
 }

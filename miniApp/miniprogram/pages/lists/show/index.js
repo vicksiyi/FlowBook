@@ -24,19 +24,16 @@ Page({
     let token = wx.getStorageSync('_token');
     wx.getSystemInfo({
       success: (result) => {
-        this.setData({ token: token, height: result.windowHeight })
-        this.getData();
+        _this.setData({ token: token, height: result.windowHeight })
+        _this.getData();
       },
     })
   },
   nav: function (res) {
-    const title = res.currentTarget.dataset.title;
+    const { title, uuid,id } = res.currentTarget.dataset;
     wx.navigateTo({
-      url: `../bookrack/home/index?title=${title}`,
+      url: `../bookrack/home/index?title=${title}&uuid=${uuid}&id=${id}`,
     })
-  },
-  click() {
-    console.log("粗糙度");
   },
   async getData() {
     let { page, islast, token, bookracks } = this.data;
@@ -60,7 +57,7 @@ Page({
     bookracks.push.apply(bookracks, _result.data);
     this.setData({ bookracks: bookracks })
   },
-  scrolltolower(){
+  scrolltolower() {
     this.getData();
   }
 })
