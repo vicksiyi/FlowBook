@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "m-bookrack": "../../../components/bookrack/index"
+    "m-bookrack": "../../../components/bookrack/index",
+    "i-message": "../../../dist/message/index",
+    "i-spin": "../../../dist/spin/index"
   },
   "navigationBarTitleText": "查看书架"
 }

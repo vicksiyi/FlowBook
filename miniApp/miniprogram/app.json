@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/lists/show/index",
     "pages/lists/add/index",
     "pages/signIn/index/index", 
     "pages/lists/mine/index",
@@ -19,7 +20,6 @@
     "pages/lists/bookrack/back/index",
     "pages/lists/bookrack/home/index",
     "pages/lists/bookrack/add/index",
-    "pages/lists/show/index",
     "pages/lists/bookrack/borrow/index",
     "pages/lists/bookrack/borrowSubmit/index",
     "pages/lists/bookrack/detail/index",

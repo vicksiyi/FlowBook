@@ -67,3 +67,19 @@ exports.joinbookrack = (id, passwd, token) => {
       .catch(err => reject(err))
   })
 }
+
+
+// 查看书架[我加入的]
+exports.getjoinbookrack = (page, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/getjoinbookrack?page=${page}`, {
+      header: {
+        Authorization: token,
+      }
+    })
+      .then((res) => {
+        if (res.data) { resolve(res.data); }
+      })
+      .catch(err => reject(err))
+  })
+}
