@@ -7,6 +7,22 @@ Component({
     back: {
       type: Boolean,
       value: false
+    },
+    avatar: {
+      type: String,
+      value: ""
+    },
+    nick_name: {
+      type: String,
+      value: ""
+    },
+    time: {
+      type: String,
+      value: ""
+    },
+    status: {
+      type: Number,
+      value: 1
     }
   },
 

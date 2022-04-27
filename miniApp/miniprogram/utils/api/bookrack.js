@@ -115,3 +115,33 @@ exports.getbookrackbooks = (page, bookrack_id, token) => {
       .catch(err => reject(err))
   })
 }
+
+// 获取在架情况
+exports.getbookupdetail = (page, bookrack_id, isbn, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/getbookupdetail?page=${page}&bookrack_id=${bookrack_id}&isbn=${isbn}`, {
+      header: {
+        Authorization: token,
+      }
+    })
+      .then((res) => {
+        if (res.data) { resolve(res.data); }
+      })
+      .catch(err => reject(err))
+  })
+}
+
+// 获取书本图片
+exports.getimages = (id, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/getimages?id=${id}`, {
+      header: {
+        Authorization: token,
+      }
+    })
+      .then((res) => {
+        if (res.data) { resolve(res.data); }
+      })
+      .catch(err => reject(err))
+  })
+}

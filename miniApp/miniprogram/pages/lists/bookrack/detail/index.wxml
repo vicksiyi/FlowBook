@@ -1,8 +1,10 @@
 <!--pages/lists/bookrack/detail/index.wxml-->
-<m-book url="http:\/\/api.jisuapi.com\/isbn\/upload\/96\/033c435b3f0f30.jpg" title="有理想就有疼痛" author="高晓春" isbn="9787212058937" publisher="安徽人民出版社" pubdate="2013-1" summary="《有理想就有疼痛:中国当代文化名人访谈录》是一份关于当代中国文化的最真实底稿，收录了高晓春与白先勇、冯骥才、余华、莫言、余秋雨、陈忠实等20位当代中国文化大家的对话。通过近距离的访谈，展现了这些文化大家多彩的内心世界，也阐释了他们对生命、艺术、财富及文化的理解。"></m-book>
+<m-book url="{{book.img}}" title="{{book.title}}" author="{{book.author}}" isbn="{{book.isbn}}" publisher="{{book.publisher}}" pubdate="{{publish_date}}" summary="{{book.desc}}">
+</m-book>
 <i-panel title="在架情况">
-  <m-book-rel-user bindtap="nav"></m-book-rel-user>
-  <m-book-rel-user></m-book-rel-user>
-  <m-book-rel-user></m-book-rel-user>
-  <m-book-rel-user></m-book-rel-user>
+  <scroll-view bindscrolltolower="scrolltolower" style="height: 300px;" scroll-y="true">
+    <m-book-rel-user data-Item="{{item}}" avatar="{{item.avatar}}" nick_name="{{item.nick_name}}" status="{{item.status}}" time="{{item.max_time}}" wx:for="{{details}}" bindtap="nav"></m-book-rel-user>
+  </scroll-view>
 </i-panel>
+<i-message id="message" />
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>

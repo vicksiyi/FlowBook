@@ -1,17 +1,17 @@
 <!--components/book-rel-user/index.wxml-->
 <view class="book-rel-user">
   <view class="avatar">
-    <image src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></image>
+    <image src="{{avatar}}"></image>
   </view>
   <view class="detail">
     <view class="item">
-      <span>所属用户: </span> TWei
+      <span>所属用户: </span> {{nick_name}}
     </view>
     <view class="item">
-      <span>{{back?"归还时间":"借阅限期:"}} </span> 至2022/5/1
+      <span>{{back?"归还时间":"最大借期:"}} </span> 至{{time}}
     </view>
-    <view class="item">
-      <span>状态: </span> 已借出
+    <view class="item" style="color: {{status == 2 ?'#ed3f14':status == 1?'#19be6b':'#f8f8f9'}};">
+      <span>状态: </span> {{status == 2 ? '已借出':status == 1?'在架':'已下架'}}
     </view>
   </view>
 </view>

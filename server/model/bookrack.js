@@ -94,6 +94,23 @@ class Bookrack extends Handle {
         limit ${page * 10},10`;
         return super.commit(sql);
     }
+    // 上架情况
+    get_book_up_detail(isbn, bookrack_id, page) {
+        const sql = `select u.avatar,u.nick_name,brb.max_time,
+        brb.id,brb.status,brb.msg,brb.time
+        from bookrack_rel_book brb
+        inner join books b on b.id = brb.book_id
+        inner join bookrack_rel_user bru on bru.id = brb.bookrack_rel_user_id
+        inner join users u on u.open_id = bru.user_id
+        where b.isbn = '${isbn}' and bru.bookrack_id = '${bookrack_id}'
+        order by brb.time desc limit ${page * 10},10;`;
+        return super.commit(sql);
+    }
+    // 获取上架图片
+    get_images(id){
+        const sql = `select * from book_rel_img where bookrack_rel_book_id = ${id}`;
+        return super.commit(sql);
+    }
 }
 const bookrack = new Bookrack();
 module.exports = bookrack;

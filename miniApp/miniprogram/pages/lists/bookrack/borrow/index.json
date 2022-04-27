@@ -2,6 +2,8 @@
   "usingComponents": {
     "m-book": "../../../../components/book/index",
     "i-panel": "../../../../dist/panel/index",
-    "i-notice-bar": "../../../../dist/notice-bar/index"
+    "i-message": "../../../../dist/message/index",
+    "i-notice-bar": "../../../../dist/notice-bar/index",
+    "i-spin": "../../../../dist/spin/index"
   }
 }

@@ -228,10 +228,42 @@ router.get('/getbookrackbooks', passport.authenticate('jwt', { session: false })
         res.json({ code: 400, msg: '未知错误' })
         throw new Error(err);
     });
-    _result = _result.map(value=>{
+    _result = _result.map(value => {
         value.publish_date = utils.formatTimestamp(new Date(value.publish_date).getTime()).split(" ")[0];
         return value;
     })
     res.json({ code: 200, data: _result });
+})
+
+// $routes /bookrack/getbookupbookrack?page&bookrack_id&isbn
+// 在架情况
+// @access private
+router.get('/getbookupdetail', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    let { page, bookrack_id, isbn } = req.query;
+    if (page < 1) { res.send({ code: 400, msg: '页码错误' }); return; }
+    else page = page - 1;
+    let _result = await bookrack.get_book_up_detail(isbn, bookrack_id, page).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    _result = _result.map(value => {
+        value.max_time = utils.formatTimestamp(new Date(value.max_time).getTime()).split(" ")[0];
+        value.time = utils.formatTimestamp(new Date(value.time).getTime());
+        return value;
+    })
+    res.json({ code: 200, data: _result });
+})
+
+// $routes /bookrack/getimages?id
+// 获取书本图片
+// @access private
+router.get('/getimages', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    let { id } = req.query;
+    let _result = await bookrack.get_images(id).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    if(_result.length > 0) _result = utils.toJson(_result);
+    res.json({ code: 200, data: _result })
 })
 module.exports = router;

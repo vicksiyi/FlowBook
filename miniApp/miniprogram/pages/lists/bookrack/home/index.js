@@ -83,9 +83,12 @@ Page({
       selected: !this.data.selected
     })
   },
-  nav() {
+  nav(e) {
+    const { item } = e.currentTarget.dataset;
+    const { uuid } = this.data;
+    wx.setStorageSync('book', JSON.stringify(item));
     wx.navigateTo({
-      url: '../detail/index',
+      url: `../detail/index?uuid=${uuid}`,
     })
   },
   navPage(res) {
