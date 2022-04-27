@@ -111,6 +111,14 @@ class Bookrack extends Handle {
         const sql = `select * from book_rel_img where bookrack_rel_book_id = ${id}`;
         return super.commit(sql);
     }
+    // 获取isbn图书信息
+    get_book_detail(isbn){
+        const sql = `select b.id,b.title,b.isbn,b.desc,a.name as author,
+        ph.name as publisher,b.publish_date,b.img,b.time from books b
+        inner join authors a on a.id = b.author_id
+        inner join publish_houses ph on ph.id = b.publish_house_id where isbn = '${isbn}'`;
+        return super.commit(sql);
+    }
 }
 const bookrack = new Bookrack();
 module.exports = bookrack;

@@ -67,8 +67,9 @@ Page({
     })
   },
   nav() {
+    let { detail, book } = this.data;
     wx.navigateTo({
-      url: '../borrowSubmit/index',
+      url: `../borrowSubmit/index?brb_id=${detail.id}&bru_id=${book.id}&title=${book.title}`,
     })
   }
 })

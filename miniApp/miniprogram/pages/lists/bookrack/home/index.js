@@ -86,9 +86,8 @@ Page({
   nav(e) {
     const { item } = e.currentTarget.dataset;
     const { uuid } = this.data;
-    wx.setStorageSync('book', JSON.stringify(item));
     wx.navigateTo({
-      url: `../detail/index?uuid=${uuid}`,
+      url: `../detail/index?uuid=${uuid}&isbn=${item.isbn}`,
     })
   },
   navPage(res) {

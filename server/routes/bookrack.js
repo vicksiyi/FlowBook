@@ -266,4 +266,17 @@ router.get('/getimages', passport.authenticate('jwt', { session: false }), async
     if(_result.length > 0) _result = utils.toJson(_result);
     res.json({ code: 200, data: _result })
 })
+
+// $routes /bookrack/getbookdetail?isbn
+// 获取isbn信息
+// @access private
+router.get('/getbookdetail', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    let { isbn } = req.query;
+    let _result = await bookrack.get_book_detail(isbn).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    if(_result.length > 0) _result = utils.toJson(_result);
+    res.json({ code: 200, data: _result })
+})
 module.exports = router;

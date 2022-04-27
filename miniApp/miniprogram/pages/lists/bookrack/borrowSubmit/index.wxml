@@ -11,3 +11,6 @@
 <map slot="footer" id="myMap" style="width: 700rpx;margin: auto; height: 300rpx;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" covers="{{covers}}" show-location></map>
 </i-panel>
 <i-button bind:click="handleClick" style="margin-top:20rpx;" type="primary">马上借书</i-button>
+
+<i-message id="message" />
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>

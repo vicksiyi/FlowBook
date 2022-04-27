@@ -145,3 +145,18 @@ exports.getimages = (id, token) => {
       .catch(err => reject(err))
   })
 }
+
+// 获取书本信息
+exports.getbookdetail = (isbn, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/getbookdetail?isbn=${isbn}`, {
+      header: {
+        Authorization: token,
+      }
+    })
+      .then((res) => {
+        if (res.data) { resolve(res.data); }
+      })
+      .catch(err => reject(err))
+  })
+}

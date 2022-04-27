@@ -1,6 +1,6 @@
 // pages/lists/bookrack/detail/index.js
 const { $Message } = require("../../../../dist/base/index");
-const { getbookupdetail } = require("../../../../utils/api/bookrack");
+const { getbookupdetail, getbookdetail } = require("../../../../utils/api/bookrack");
 let time = null;
 Page({
 
@@ -13,14 +13,16 @@ Page({
     uuid: "",
     page: 1,
     islast: false,
-    details: []
+    details: [],
+    isbn: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let { uuid } = options;
+    let { uuid, isbn } = options;
+    let token = wx.getStorageSync('_token');
     if (!uuid) {
       $Message({ type: "error", content: "未知错误" });
       time = setTimeout(() => {
@@ -28,25 +30,55 @@ Page({
           delta: 1,
         })
       }, 500)
+      return;
     }
-    let token = wx.getStorageSync('_token')
-    this.setData({ uuid: uuid, token: token });
+    this.setData({ uuid: uuid, token: token, isbn: isbn });
   },
-  onShow() {
-    let book = wx.getStorageSync('book')
-    if (!book) {
-      wx.navigateBack({
-        delta: 1,
-      })
+  async onShow() {
+    let { isbn, token } = this.data;
+    let book = null;
+    let _result = await this.getBook(isbn, token);
+    if (_result.length == 0) {
+      $Message({ type: "error", content: "书本不存在" });
+      time = setTimeout(() => {
+        wx.navigateBack({
+          delta: 1,
+        })
+      }, 500)
     } else {
-      book = JSON.parse(book);
+      book = _result[0];
+      this.setTitle(book);
+      this.setData({ page: 1, islast: false, details: [] });
+      this.getData();
     }
+  },
+  getBook(isbn, token) {
+    return new Promise(async (resolve, reject) => {
+      this.setData({ loading: true });
+      let _result = await getbookdetail(isbn, token);
+      if (_result.code != 200) {
+        $Message({ type: "error", content: _result.msg });
+        return;
+      }
+      if (_result.data.length == 0) {
+        $Message({ type: "error", content: "书本不存在" });
+        time = setTimeout(() => {
+          wx.navigateBack({
+            delta: 1,
+          })
+        }, 500)
+        return;
+      }
+      this.setData({ loading: false });
+      resolve(_result.data);
+    })
+  },
+  setTitle(book) {
     this.setData({ book: book });
+    wx.setStorageSync('book', JSON.stringify(book));
     wx.setNavigationBarTitle({
       title: book.title,
     })
-    this.setData({ page: 1, islast: false, details: [] });
-    this.getData();
   },
   async getData() {
     let { page, book, uuid, islast, token, details } = this.data;
@@ -59,6 +91,11 @@ Page({
     this.setData({ loading: false });
     if (_result.code != 200) {
       $Message({ type: "error", content: _result.msg });
+      return;
+    }
+    if (details.length == 0 && _result.data.length == 0) {
+      $Message({ type: "warning", content: "书架上不存在该图书" });
+      this.setData({ islast: true })
       return;
     }
     if (_result.data.length != 10) {

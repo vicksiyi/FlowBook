@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "m-scan": "../../../../components/scan/index"
+    "m-scan": "../../../../components/scan/index",
+    "i-message": "../../../../dist/message/index",
+    "i-spin": "../../../../dist/spin/index"
   },
   "navigationBarTitleText": "扫码借书"
 }
