@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "i-panel": "../../../../dist/panel/index",
-    "i-input": "../../../../dist/input/index"
+    "i-input": "../../../../dist/input/index",
+    "i-spin": "../../../../dist/spin/index",
+    "i-message": "../../../../dist/message/index"
   },
   "navigationBarTitleText": "加入方式管理"
 }

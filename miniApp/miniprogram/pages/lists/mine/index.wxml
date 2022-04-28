@@ -1,6 +1,6 @@
 <!--pages/lists/mine/index.wxml-->
 <scroll-view bindscrolltolower="scrolltolower" scroll-y="true" class="bookracks" style="height: {{height}}px;">
-  <m-bookrack wx:for="{{bookracks}}" logo="{{item.logo}}" bindtap="nav" data-Uuid="{{item.uuid}}" data-Title="{{item.title}}" title="{{item.title}}" nickName="{{item.nick_name}}" desc="{{item.desc}}" isBorrow="是">
+  <m-bookrack wx:for="{{bookracks}}" logo="{{item.logo}}" data-Is_passwd="{{item.is_passwd}}" bindtap="nav" data-Uuid="{{item.uuid}}" data-Title="{{item.title}}" title="{{item.title}}" nickName="{{item.nick_name}}" desc="{{item.desc}}" isBorrow="是">
   </m-bookrack>
 </scroll-view>
 

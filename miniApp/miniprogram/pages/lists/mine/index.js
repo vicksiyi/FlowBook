@@ -63,9 +63,9 @@ Page({
     this.setData({ bookracks: bookracks });
   },
   nav(e) {
-    let { uuid, title } = e.currentTarget.dataset;
+    let { uuid, title, is_passwd } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `../manage/home/index?uuid=${uuid}&title=${title}`,
+      url: `../manage/home/index?uuid=${uuid}&title=${title}&is_passwd=${is_passwd}`,
     })
   },
   add() {

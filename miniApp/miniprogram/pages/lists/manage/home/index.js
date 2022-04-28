@@ -25,14 +25,15 @@ Page({
       url: "../addtype/index"
     }],
     uuid: "",
-    loading: false
+    loading: false,
+    is_passwd: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let { uuid, title } = options;
+    let { uuid, title, is_passwd } = options;
     if (!uuid) {
       $Message({ type: "error", content: "未知错误" });
       time = setTimeout(() => {
@@ -45,13 +46,13 @@ Page({
     wx.setNavigationBarTitle({
       title: `${title}-书架管理`,
     })
-    this.setData({ uuid: uuid, title: title })
+    this.setData({ uuid: uuid, title: title, is_passwd: is_passwd })
   },
   nav(res) {
     const url = res.currentTarget.dataset.url;
-    const { uuid, title } = this.data;
+    const { uuid, title, is_passwd } = this.data;
     wx.navigateTo({
-      url: `${url}?uuid=${uuid}&title=${title}`
+      url: `${url}?uuid=${uuid}&title=${title}&is_passwd=${is_passwd}`
     })
   },
   onHide() {
