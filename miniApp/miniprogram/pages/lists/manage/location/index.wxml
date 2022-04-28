@@ -1,26 +1,23 @@
 <!--pages/lists/manage/location/index.wxml-->
 <i-panel title="当前位置">
-  <map wx:if="{{longitude}}" slot="footer" id="myMap" style="width: 700rpx;margin: auto; height: 300rpx;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" covers="{{covers}}" show-location></map>
+  <map wx:if="{{longitude}}" slot="footer" id="myMap" style="width: 700rpx;margin: auto; height: 300rpx;" latitude="{{latitude}}" longitude="{{longitude}}" show-location></map>
   <i-button wx:else i-class="btn" bind:click="location" type="primary" size="small">定位</i-button>
 </i-panel>
 <i-panel title="书架距离">
-  <view wx:if="{{location > 0}}" style="padding: 20rpx;color: #495060;">附近{{location}}米</view>
+  <view wx:if="{{distance > 0}}" style="padding: 20rpx;color: #495060;">附近{{distance}}米</view>
   <view wx:else class="location">
     <view class="ipt">
-      <i-input type="number" placeholder="请输入距离" />
-    </view>
-    <view>
-      <button class="btn" hover-class="btn-hover" type="primary">确定</button>
+      <i-input type="number" value="{{location_temp}}" bind:change="locationChange" placeholder="请输入距离" />
     </view>
   </view>
 </i-panel>
 <i-panel title="位置描述">
   <view wx:if="{{desc}}" style="padding: 20rpx;color: #495060;">{{desc}}</view>
   <view wx:else>
-    <i-input value="{{ value3 }}" type="textarea" title="位置备注" placeholder="请输入位置备注(最多200字)" maxlength="200" />
-    <view>
-      <button class="btn" hover-class="btn-hover" type="primary">提交位置备注</button>
-    </view>
+    <i-input value="{{ desc_temp }}" bind:change="descChange" type="textarea" title="位置备注" placeholder="请输入位置备注(最多200字)" maxlength="200" />
   </view>
 </i-panel>
-<i-button i-class="btn" bind:click="show" type="primary" size="small">修改位置</i-button>
+<i-button i-class="btn" wx:if="{{!isexist}}" bind:click="save" type="primary" size="small">保存位置</i-button>
+
+<i-message id="message" />
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>
