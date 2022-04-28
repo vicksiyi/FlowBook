@@ -62,9 +62,10 @@ Page({
     bookracks.push.apply(bookracks, _result.data);
     this.setData({ bookracks: bookracks });
   },
-  nav() {
+  nav(e) {
+    let { uuid, title } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: '../manage/home/index',
+      url: `../manage/home/index?uuid=${uuid}&title=${title}`,
     })
   },
   add() {

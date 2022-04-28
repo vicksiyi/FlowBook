@@ -74,7 +74,17 @@ router.post('/joinbookrack', passport.authenticate('jwt', { session: false }), a
         throw new Error(err);
     }))[0];
     if (_result.num != 0) {
-        res.json({ code: 400, msg: '不可重复加入' });
+        if (_result.status == 2) {
+            res.json({ code: 400, msg: '已被拉入黑名单' });
+        } else if (_result.status == 1) {
+            res.json({ code: 400, msg: '不可重复加入' });
+        } else {  // 退出，则重新加入
+            _result = await bookrack.update_bookrack_user(id, open_id).catch(err => {
+                res.json({ code: 400, msg: '未知错误' })
+                throw new Error(err);
+            });
+            res.json({ code: 200 })
+        }
         return;
     }
     _result = await bookrack.query_bookrack(id).catch(err => {
@@ -263,7 +273,7 @@ router.get('/getimages', passport.authenticate('jwt', { session: false }), async
         res.json({ code: 400, msg: '未知错误' })
         throw new Error(err);
     });
-    if(_result.length > 0) _result = utils.toJson(_result);
+    if (_result.length > 0) _result = utils.toJson(_result);
     res.json({ code: 200, data: _result })
 })
 
@@ -276,7 +286,7 @@ router.get('/getbookdetail', passport.authenticate('jwt', { session: false }), a
         res.json({ code: 400, msg: '未知错误' })
         throw new Error(err);
     });
-    if(_result.length > 0) _result = utils.toJson(_result);
+    if (_result.length > 0) _result = utils.toJson(_result);
     res.json({ code: 200, data: _result })
 })
 module.exports = router;

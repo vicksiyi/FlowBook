@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/lists/mine/index",
     "pages/lists/show/index",
     "pages/lists/bookrack/add/index",
     "pages/lists/bookrack/home/index",
     "pages/lists/add/index",
     "pages/signIn/index/index",
-    "pages/lists/mine/index",
     "pages/lists/manage/add/index",
     "pages/signIn/login/index",
     "pages/signIn/register/index",

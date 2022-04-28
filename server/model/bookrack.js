@@ -27,6 +27,12 @@ class Bookrack extends Handle {
         where bookrack_id='${bookrack_id}' and user_id='${user_id}'`;
         return super.commit(sql);
     }
+    // 更新加入状态
+    update_bookrack_user(bookrack_id, user_id, status = 1) {
+        const sql = `update bookrack_rel_user set status = ${status}
+        where bookrack_id='${bookrack_id}' and user_id='${user_id}'`;
+        return super.commit(sql);
+    }
     // 获取书架信息
     query_bookrack(id) {
         const sql = `select * from bookracks where uuid='${id}'`;

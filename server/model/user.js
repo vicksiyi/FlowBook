@@ -4,7 +4,6 @@ class User extends Handle {
     // 判断openId是否已经注册
     query_openid(open_id, email = '') {
         const sql = `select count(1) as num from users where open_id = '${open_id}' or email = '${email}'`;
-        console.log(sql);
         return super.commit(sql);
     }
     // 查找用户

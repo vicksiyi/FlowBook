@@ -7,3 +7,5 @@
     <view class="title">{{item.title}}</view>
   </view>
 </view>
+<i-message id="message" />
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>

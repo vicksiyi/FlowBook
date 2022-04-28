@@ -1,25 +1,28 @@
 <!--pages/lists/manage/person/index.wxml-->
-<view class="search">
+<!-- <view class="search">
   <view class="search-input">
     <input class="search-ipt" placeholder="搜索昵称" />
   </view>
   <view class="search-btn">
     <button class="btn" loading="{{loading}}" hover-class="btn-hover" type="primary">搜索</button>
   </view>
-</view>
-<view class="sort" style="height: {{height}}px;">
-  <view bindtap="manage" wx:for="{{[1,2,3,3,4,5,5,6,8,9,3,234,2,34,23,4,23,423]}}" class="item">
+</view> -->
+<scroll-view class="sort" bindscrolltolower="scrolltolower" style="height: {{height}}px;" scroll-y="true">
+  <view bindtap="manage" data-User_id="{{item.user_id}}" data-Status="{{item.status}}" wx:for="{{persons}}" class="item">
     <view class="num">{{index + 1}}</view>
     <view class="avatar">
-      <image src="../../../../assets/temp/5.jpg"></image>
+      <image src="{{item.avatar}}"></image>
     </view>
-    <view class="name">憨憨</view>
-    <view class="result">2022-04-22</view>
+    <view class="name">{{item.nick_name}}</view>
+    <view class="result">{{item.time}}</view>
   </view>
-</view>
+</scroll-view>
 <i-drawer mode="ghost" visible="{{showRight}}" bind:close="toggleRight">
   <view class="manage">
+    <view class="status" style="color: {{status == 1?'#19be6b':'#ed3f14'}};">{{status == 1?'已加入':'已被封'}}</view>
     <i-button i-class="manage-btn" bind:click="show" type="primary" size="small">查看记录</i-button>
-    <i-button i-class="manage-btn" bind:click="down" type="error" size="small">退出书架</i-button>
+    <i-button i-class="manage-btn" bind:click="down" type="{{status == 1 ? 'error':'success'}}" size="small">{{status == 1 ?"拉黑":'解封'}}</i-button>
   </view>
 </i-drawer>
+<i-message id="message" />
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>
