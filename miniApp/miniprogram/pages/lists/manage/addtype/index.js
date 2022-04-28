@@ -3,7 +3,6 @@ const { $Message } = require("../../../../dist/base/index");
 const { updatepasswd } = require("../../../../utils/api/manage/passwd");
 let time = null;
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -14,7 +13,6 @@ Page({
     loading: false,
     passwd: ""
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -55,4 +53,4 @@ Page({
   onHide() {
     if (time) clearTimeout(time);
   }
-})
+})  

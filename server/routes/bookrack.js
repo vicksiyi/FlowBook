@@ -69,11 +69,12 @@ router.get('/search', passport.authenticate('jwt', { session: false }), async (r
 router.post('/joinbookrack', passport.authenticate('jwt', { session: false }), async (req, res) => {
     let { passwd, id } = req.body;
     let { open_id } = req.user;
-    let _result = utils.toJson(await bookrack.query_bookrack_user(id, open_id).catch(err => {
+    let _result = await bookrack.query_bookrack_user(id, open_id).catch(err => {
         res.json({ code: 400, msg: '未知错误' })
         throw new Error(err);
-    }))[0];
-    if (_result.num != 0) {
+    })
+    if (_result.length != 0) {
+        _result = utils.toJson(_result)[0];
         if (_result.status == 2) {
             res.json({ code: 400, msg: '已被拉入黑名单' });
         } else if (_result.status == 1) {

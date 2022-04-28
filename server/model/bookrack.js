@@ -23,7 +23,7 @@ class Bookrack extends Handle {
     }
     // 查看是否已经加入
     query_bookrack_user(bookrack_id, user_id) {
-        const sql = `select count(1) as num from bookrack_rel_user
+        const sql = `select * from bookrack_rel_user
         where bookrack_id='${bookrack_id}' and user_id='${user_id}'`;
         return super.commit(sql);
     }
@@ -49,7 +49,7 @@ class Bookrack extends Handle {
         from bookrack_rel_user bru 
         inner join bookracks b on b.uuid = bru.bookrack_id 
         inner join users u on u.open_id = b.author
-        where bru.user_id = '${user_id}' order by b.time desc  
+        where bru.user_id = '${user_id}' and bru.status = 1 order by b.time desc  
         limit ${page * 10},10;`;
         return super.commit(sql);
     }
