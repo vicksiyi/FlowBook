@@ -68,6 +68,7 @@ router.post('/accountlogin', async (req, res) => {
             res.json({ code: 400, msg: '未知错误' })
             throw new Error(err);
         });
+        console.log(_user[0].open_id, password);
         if (_user.length === 0) { //未注册
             res.json({ code: 400, msg: '用户不存在' })
         } else if (_user[0].passwd == md5(_user[0].open_id + password)) {

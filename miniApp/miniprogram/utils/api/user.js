@@ -34,3 +34,22 @@ exports.edit = async (data, token) => {
       .catch(err => reject(err))
   })
 }
+
+// 更新密码
+exports.editpasswd = async (data, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/user/editpasswd`, {
+      data: data,
+      header: {
+        Authorization: token
+      },
+      method: "PUT"
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}

@@ -1,2 +1,10 @@
 <!--pages/index/editpasswd/index.wxml-->
-<text>pages/index/editpasswd/index.wxml</text>
+<i-panel title="修改密码">
+  <i-input value="{{ old_passwd }}" type="password" bind:change="oldPasswdChange" placeholder="请输入原密码" title="旧密码" />
+  <i-input value="{{ new_passwd }}" type="password" bind:change="newPasswdChange" title="新密码" placeholder="请输入新密码" />
+  <i-input value="{{ new_passwds }}" type="password" bind:change="newPasswdsChange" title="新密码" placeholder="请重新输入新密码" />
+  <i-button bind:click="edit" type="primary">修改密码</i-button>
+</i-panel>
+
+<i-message id="message" />
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>

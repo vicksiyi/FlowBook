@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/signIn/index/index",
+    "pages/index/editpasswd/index",
     "pages/index/mine/index",
     "pages/lists/show/index",
     "pages/lists/mine/index",
@@ -31,7 +32,6 @@
     "pages/index/bookracklog/index",
     "pages/index/borrowlog/index",
     "pages/index/editemail/index",
-    "pages/index/editpasswd/index",
     "pages/index/friend/index",
     "pages/index/page/index"
   ],
