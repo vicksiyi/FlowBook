@@ -94,7 +94,7 @@ class Bookrack extends Handle {
         inner join (select DISTINCT b.isbn from bookrack_rel_book brb 
         inner join books b on b.id = brb.book_id 
         inner join bookrack_rel_user bru on bru.id = brb.bookrack_rel_user_id
-        where brb.status = 1 and bru.bookrack_id = '${bookrack_id}') disb on disb.isbn = b.isbn
+        where bru.bookrack_id = '${bookrack_id}') disb on disb.isbn = b.isbn
         inner join authors a on a.id = b.author_id
         inner join publish_houses ph on ph.id = b.publish_house_id
         limit ${page * 10},10`;
@@ -113,16 +113,28 @@ class Bookrack extends Handle {
         return super.commit(sql);
     }
     // 获取上架图片
-    get_images(id){
+    get_images(id) {
         const sql = `select * from book_rel_img where bookrack_rel_book_id = ${id}`;
         return super.commit(sql);
     }
     // 获取isbn图书信息
-    get_book_detail(isbn){
+    get_book_detail(isbn) {
         const sql = `select b.id,b.title,b.isbn,b.desc,a.name as author,
         ph.name as publisher,b.publish_date,b.img,b.time from books b
         inner join authors a on a.id = b.author_id
         inner join publish_houses ph on ph.id = b.publish_house_id where isbn = '${isbn}'`;
+        return super.commit(sql);
+    }
+    // 通过brb_id获取图书信息
+    get_brb_id_detail(brb_id) {
+        const sql = `select * from bookrack_rel_book where id = ${brb_id}`;
+        return super.commit(sql);
+    }
+    // 通过判断图书是否已经借出
+    get_book_isexcit(brb_id, bru_id) {
+        const sql = `select count(1) as num from book_rel_user 
+        where bookrack_rel_book_id=${brb_id} and bookrack_rel_user_id=${bru_id}
+        and status = 0`;
         return super.commit(sql);
     }
 }

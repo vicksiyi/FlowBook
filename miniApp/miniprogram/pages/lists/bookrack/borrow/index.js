@@ -10,15 +10,23 @@ Page({
     book: {},
     detail: {},
     loading: false,
-    images: []
+    images: [],
+    uuid: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    let { uuid } = options;
+    if (!uuid) {
+      wx.navigateBack({
+        delta: 1,
+      })
+      return;
+    }
     let token = wx.getStorageSync('_token');
-    this.setData({ token: token })
+    this.setData({ token: token, uuid: uuid })
     wx.setNavigationBarTitle({
       title: '刑法中的同意制度-借出',
     })
@@ -67,9 +75,9 @@ Page({
     })
   },
   nav() {
-    let { detail, book } = this.data;
+    let { detail, book, uuid } = this.data;
     wx.navigateTo({
-      url: `../borrowSubmit/index?brb_id=${detail.id}&bru_id=${book.id}&title=${book.title}`,
+      url: `../borrowSubmit/index?brb_id=${detail.id}&uuid=${uuid}&bru_id=${book.id}&title=${book.title}`,
     })
   }
 })

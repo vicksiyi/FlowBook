@@ -109,9 +109,10 @@ Page({
   },
   nav(e) {
     const { item } = e.currentTarget.dataset;
+    const { uuid } = this.data;
     wx.setStorageSync('detail', JSON.stringify(item));
     wx.navigateTo({
-      url: '../borrow/index',
+      url: `../borrow/index?uuid=${uuid}`,
     })
   },
   onHide() {

@@ -160,3 +160,40 @@ exports.getbookdetail = (isbn, token) => {
       .catch(err => reject(err))
   })
 }
+
+
+// 获取位置
+exports.getlocation = async (uuid, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/getlocation?bookrack_id=${uuid}`, {
+      header: {
+        Authorization: token
+      }
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}
+
+// 借书
+exports.borrowbook = async (data, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/borrowbook`, {
+      data: data,
+      header: {
+        Authorization: token
+      },
+      method: "PUT"
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}

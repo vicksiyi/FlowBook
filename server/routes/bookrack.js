@@ -4,6 +4,7 @@ const passport = require("passport");
 const keys = require('../config/keys');
 const utils = require('../utils/utils');
 const bookrack = require('../model/bookrack');
+const location = require('../model/manage/location');
 const transaction = require('../model/transaction');
 
 // $routes /bookrack/create
@@ -289,5 +290,79 @@ router.get('/getbookdetail', passport.authenticate('jwt', { session: false }), a
     });
     if (_result.length > 0) _result = utils.toJson(_result);
     res.json({ code: 200, data: _result })
+})
+
+// $routes /bookrack/getlocation
+// 借书
+// @access private
+router.get('/getlocation', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    let { bookrack_id } = req.query;
+    let _result = await location.query_location(bookrack_id).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    res.json({ code: 200, data: _result });
+})
+
+// $routes /bookrack/borrowbook
+// 借书
+// @access private
+router.put('/borrowbook', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    let { end_time, bru_id, brb_id } = req.body;
+    // 1、判断最大限期是否超越时间【end_time 与 max_time】
+    end_time = new Date(end_time).getTime();
+    let _result = await bookrack.get_brb_id_detail(brb_id).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    if (_result.length === 0) {
+        res.json({ code: 400, msg: '书本不存在' })
+        return;
+    }
+    _result = utils.toJson(_result)[0];
+    _result.max_time = _result.max_time ? new Date(_result.max_time).getTime() : "";
+    if (_result.max_time != "" && _result.max_time < end_time) {
+        res.json({ code: 400, msg: '借阅时间超过最大可借阅时间' })
+        return;
+    }
+    // 3、判断是否已经借出
+    _result = utils.toJson(await bookrack.get_book_isexcit(brb_id, bru_id).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    }))[0];
+    if (_result.num > 0) {
+        res.json({ code: 400, msg: '书本已经被借出' })
+        return;
+    }
+    // 4、修改bookrack_rel_book状态
+    // 5、插入book_rel_uer
+    // 事务处理4、5
+    // 开启事务
+    transaction.start().catch(err => {
+        res.json({ code: 400, msg: '未知错误' });
+        throw err;
+    });
+    let sql = `update bookrack_rel_book set status = 2 where id = ${brb_id};`;
+    console.log(sql);
+    transaction.query(sql).then(() => {
+        return new Promise(async (resolve, reject) => {
+            sql = `insert into book_rel_user(bookrack_rel_book_id,
+            bookrack_rel_user_id,end_time) values(${brb_id},${bru_id},
+            '${utils.formatTimestamp(end_time)}')`;
+            transaction.query(sql).then(() => {
+                resolve();
+            }).catch((error) => reject(error));
+        })
+    }).then(() => {
+        // 提交事务
+        return new Promise((resolve, reject) => {
+            transaction.commit().then(() => {
+                res.json({ code: 200 })
+            }).catch((error) => reject(error));
+        })
+    }).catch(err => {
+        res.json({ code: 400, msg: '插入失败' })
+        transaction.rollback(err);
+    });
 })
 module.exports = router;
