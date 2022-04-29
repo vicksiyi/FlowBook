@@ -23,7 +23,7 @@
         <i-cell-group>
           <i-cell title="个人中心" is-link url="../mine/index"></i-cell>
           <i-cell title="修改密码" is-link url="../editpasswd/index"></i-cell>
-          <i-cell title="更换邮箱" label="暂无" is-link url="../editemail/index"></i-cell>
+          <i-cell title="更换邮箱" label="{{mine.email}}" is-link url="../editemail/index"></i-cell>
         </i-cell-group>
       </i-panel>
       <i-panel i-class="panel-title" title="具体信息">

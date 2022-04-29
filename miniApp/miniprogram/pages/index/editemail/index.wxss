@@ -1,1 +1,21 @@
 /* pages/index/editemail/index.wxss */
+.phone-oauth {
+  display: flex;
+  flex-direction: row;
+}
+
+.phone-oauth .input {
+  width: 450rpx;
+  margin-left: 80rpx;
+  margin-top: 20rpx;
+}
+
+.phone-oauth .send {
+  width: 220rpx;
+  margin-top: 20rpx;
+}
+
+.code {
+  width: 670rpx;
+  margin-left: 80rpx;
+}

@@ -29,6 +29,11 @@ class User extends Handle {
         const sql = `update users set passwd='${passwd}' where open_id = '${open_id}'`;
         return super.commit(sql);
     }
+    // 修改邮箱
+    edit_user_email(email, open_id) {
+        const sql = `update users set email='${email}' where open_id = '${open_id}'`;
+        return super.commit(sql);
+    }
 }
 const user = new User();
 module.exports = user;

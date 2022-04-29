@@ -53,3 +53,41 @@ exports.editpasswd = async (data, token) => {
       .catch(err => reject(err))
   })
 }
+
+// 发送邮箱
+exports.sendemail = async (data, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/user/sendemail`, {
+      data: data,
+      header: {
+        Authorization: token
+      },
+      method: "PUT"
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}
+
+// 修改邮箱
+exports.editemail = async (data, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/user/editemail`, {
+      data: data,
+      header: {
+        Authorization: token
+      },
+      method: "POST"
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}

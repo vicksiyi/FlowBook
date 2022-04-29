@@ -1,2 +1,41 @@
 <!--pages/index/editemail/index.wxml-->
-<text>pages/index/editemail/index.wxml</text>
+<i-panel title="原邮箱验证">
+  <view class="phone-oauth">
+    <view class="input">
+      <i-input value="{{ oldEmail }}" title="原邮箱" disabled="true"/>
+    </view>
+    <view class="send">
+      <button wx:if="{{!isSendOldEmail}}" bindtap="sendOldEmail" size="mini" style="background:#2DB7F5;color:#fff;line-height:68rpx;margin-top:10rpx;font-size:26rpx;">
+        发送验证码
+      </button>
+      <button wx:else size="mini" disabled="true" style="background:#bbbec4;color:#fff;line-height:68rpx;margin-top:10rpx;">
+        {{oldEmailNum}}
+      </button>
+    </view>
+  </view>
+  <view class="code">
+    <i-input value="{{ oldEmailCode }}" bind:change="oldEmailCodeChange" type="number" title="验证码" placeholder="请输入邮箱号验证码" />
+  </view>
+</i-panel>
+<i-panel title="新邮箱验证">
+  <view class="phone-oauth">
+    <view class="input">
+      <i-input value="{{ newEmail }}" placeholder="请输入新邮箱号" bind:change="newEmailChange" title="新邮箱"/>
+    </view>
+    <view class="send">
+      <button wx:if="{{!isSendNewEmail}}" bindtap="sendNewEmail" size="mini" style="background:#2DB7F5;color:#fff;line-height:68rpx;margin-top:10rpx;font-size:26rpx;">
+        发送验证码
+      </button>
+      <button wx:else size="mini" disabled="true" style="background:#bbbec4;color:#fff;line-height:68rpx;margin-top:10rpx;">
+        {{newEmailNum}}
+      </button>
+    </view>
+  </view>
+  <view class="code">
+    <i-input value="{{ newEmailCode }}" bind:change="newEmailCodeChange" type="number" title="验证码" placeholder="请输入邮箱号验证码" />
+  </view>
+</i-panel>
+
+<i-button bind:click="editemail" type="primary">更新邮箱</i-button>
+<i-message id="message" />
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>
