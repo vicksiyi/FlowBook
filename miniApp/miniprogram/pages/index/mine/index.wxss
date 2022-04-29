@@ -1,1 +1,12 @@
 /* pages/index/mine/index.wxss */
+.mine .avatar {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 20rpx auto;
+}
+
+.mine .avatar image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}

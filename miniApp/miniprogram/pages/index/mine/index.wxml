@@ -1,2 +1,15 @@
 <!--pages/index/mine/index.wxml-->
-<text>pages/index/mine/index.wxml</text>
+<view class="mine">
+  <view bindtap="upload" class="avatar">
+    <image src="{{mine.avatar}}"></image>
+  </view>
+  <i-panel title="基础信息">
+    <i-input value="{{ mine.nick_name }}" bind:change="nicknameChahnge" placeholder="请输入昵称" title="昵称" disabled="{{!isedit}}" />
+    <i-input value="{{ mine.desc}}" bind:change="descChange" type="textarea" title="简介" disabled="{{!isedit}}" placeholder="请输入简介(最多200字)" maxlength="200" />
+  </i-panel>
+  <i-button wx:if="{{!isedit}}" bind:click="edit" type="primary">修改信息</i-button>
+  <i-button wx:else bind:click="save" type="primary">保存信息</i-button>
+</view>
+
+<i-message id="message" />
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>

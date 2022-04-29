@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/signIn/index/index",
+    "pages/index/mine/index",
     "pages/lists/show/index",
     "pages/lists/mine/index",
     "pages/lists/bookrack/add/index",
@@ -32,7 +33,6 @@
     "pages/index/editemail/index",
     "pages/index/editpasswd/index",
     "pages/index/friend/index",
-    "pages/index/mine/index",
     "pages/index/page/index"
   ],
   "window": {

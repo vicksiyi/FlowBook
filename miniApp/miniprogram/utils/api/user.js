@@ -15,3 +15,22 @@ exports.mine = async (token) => {
       .catch(err => reject(err))
   })
 }
+
+// 更新用户信息
+exports.edit = async (data, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/user/edit`, {
+      data: data,
+      header: {
+        Authorization: token
+      },
+      method: "PUT"
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}

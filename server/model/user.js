@@ -18,6 +18,13 @@ class User extends Handle {
         '${email}', '${password}')`;
         return super.commit(sql);
     }
+    // 修改用户信息
+    edit_user(avatar, nick_name, desc, open_id) {
+        const sql = `update users set avatar='${avatar}',nick_name='${nick_name}',
+        \`desc\`='${desc}' where open_id = '${open_id}'`;
+        console.log(sql);
+        return super.commit(sql);
+    }
 }
 const user = new User();
 module.exports = user;
