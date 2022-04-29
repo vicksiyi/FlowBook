@@ -71,7 +71,7 @@ router.post('/accountlogin', async (req, res) => {
         if (_user.length === 0) { //未注册
             res.json({ code: 400, msg: '用户不存在' })
         } else if (_user[0].passwd == md5(_user[0].open_id + password)) {
-            const rule = { openId: _result.openid };
+            const rule = { openId: _user[0].open_id };
             jwtToken(rule).then(async token => {
                 res.json({
                     code: 200, token: 'Bearer ' + token

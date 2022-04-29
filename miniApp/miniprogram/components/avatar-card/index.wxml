@@ -2,12 +2,12 @@
 <view class="card">
   <!-- 头像 -->
   <view class="avatar">
-    <image src="../../assets/temp/5.jpg"></image>
+    <image src="{{avatar}}"></image>
   </view>
   <!-- 昵称&ID -->
   <view class="user">
-    <view class="nickName">憨憨</view>
-    <view class="id">用户ID：xxxxxxxxxxxxxxxx </view>
+    <view class="nickName">{{nickName}}</view>
+    <view class="id">账号：{{email}} </view>
   </view>
   <!-- 信誉分 -->
   <view class="credit">

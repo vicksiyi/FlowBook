@@ -1,4 +1,6 @@
 // pages/index/home/index.js
+const { $Message } = require("../../../dist/base/index");
+const { mine } = require("../../../utils/api/user");
 Page({
 
   /**
@@ -12,20 +14,22 @@ Page({
     lists: [{
       url: "../../assets/images/home/sort.png",
       text: "书架排行",
-      path:"../../lists/sort/index"
+      path: "../../lists/sort/index"
     }, {
       url: "../../assets/images/home/book.png",
       text: "查看书架",
-      path:"../../lists/show/index"
+      path: "../../lists/show/index"
     }, {
       url: "../../assets/images/home/add-book.png",
       text: "加入书架",
-      path:"../../lists/add/index"
+      path: "../../lists/add/index"
     }, {
       url: "../../assets/images/home/mine-book.png",
       text: "我的书架",
-      path:"../../lists/mine/index"
-    }]
+      path: "../../lists/mine/index"
+    }],
+    token: "",
+    mine: {}
   },
 
   /**
@@ -33,6 +37,8 @@ Page({
    */
   onLoad: function (options) {
     let _this = this;
+    let token = wx.getStorageSync('_token');
+    this.setData({ token: token });
     wx.getSystemInfo({
       success: (result) => {
         _this.setData({
@@ -41,18 +47,29 @@ Page({
         })
       },
     })
+    this.getmine();
+  },
+  onShow(){
+    this.getmine();
   },
   handleChange({ detail }) {
     let _this = this;
     this.setData({
-      current: detail.key,
-      spinShow: true
+      current: detail.key
     });
-    let time = setTimeout(() => {
-      _this.setData({
-        spinShow: false
-      })
-      clearTimeout(time);
-    }, 1000)
+  },
+  async getmine() {
+    let { token } = this.data;
+    this.setData({ spinShow: true })
+    let _result = await mine(token);
+    this.setData({ spinShow: false })
+    wx.setStorageSync('mine', JSON.stringify(_result.data))
+    this.setData({ mine: _result.data })
+  },
+  exit() {
+    wx.removeStorageSync('_token')
+    wx.redirectTo({
+      url: '../../signIn/index/index',
+    })
   }
 })

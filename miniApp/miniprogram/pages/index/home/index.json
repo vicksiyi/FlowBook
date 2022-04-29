@@ -13,6 +13,7 @@
     "i-spin": "../../../dist/spin/index",
     "i-cell-group": "../../../dist/cell-group/index",
     "i-cell": "../../../dist/cell/index",
-    "i-panel": "../../../dist/panel/index"
+    "i-panel": "../../../dist/panel/index",
+    "i-message": "../../../dist/message/index"
   }
 }
