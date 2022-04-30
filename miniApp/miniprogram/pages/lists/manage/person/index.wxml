@@ -16,6 +16,7 @@
     <view class="name">{{item.nick_name}}</view>
     <view class="result">{{item.time}}</view>
   </view>
+  <m-back-line></m-back-line>
 </scroll-view>
 <i-drawer mode="ghost" visible="{{showRight}}" bind:close="toggleRight">
   <view class="manage">

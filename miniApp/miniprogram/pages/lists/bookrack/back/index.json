@@ -3,7 +3,9 @@
     "m-book": "../../../../components/book/index",
     "m-scan": "../../../../components/scan/index",
     "i-button": "../../../../dist/button/index",
-    "m-book-rel-user": "../../../../components/book-rel-user/index"
+    "m-book-rel-user": "../../../../components/book-rel-user/index",
+    "i-message": "../../../../dist/message/index",
+    "i-spin": "../../../../dist/spin/index"
   },
   "navigationBarTitleText": "扫码还书"
 }

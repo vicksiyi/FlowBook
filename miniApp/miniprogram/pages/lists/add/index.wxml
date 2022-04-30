@@ -10,6 +10,7 @@
 <scroll-view bindscrolltolower="scrolltolower" style="height: {{height}}px;" scroll-y="true">
   <m-bookrack wx:for="{{bookracks}}" bindtap="show" data-Id="{{item.uuid}}" data-Iskey="{{item.is_passwd}}" iskey="{{item.is_passwd}}" logo="{{item.logo}}" data-Title="{{item.title}}" title="{{item.title}}" nickName="{{item.nick_name}}" isBorrow="true" desc="{{item.desc}}">
   </m-bookrack>
+  <m-back-line></m-back-line>
 </scroll-view>
 
 <view class="model-bg" wx:if="{{visible}}">

@@ -197,3 +197,40 @@ exports.borrowbook = async (data, token) => {
       .catch(err => reject(err))
   })
 }
+
+// 借阅情况
+exports.getdetailborrow = async (isbn, bookrack_id, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/getdetailborrow?isbn=${isbn}&bookrack_id=${bookrack_id}`, {
+      header: {
+        Authorization: token
+      }
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}
+
+
+// 归还图书
+exports.backbook = async (data, token) => {
+  return new Promise((resolve, reject) => {
+    axios.request(`/bookrack/backbook`, {
+      data: data,
+      header: {
+        Authorization: token
+      },
+      method: "POST"
+    })
+      .then((res) => {
+        if (res.data) {
+          resolve(res.data);
+        }
+      })
+      .catch(err => reject(err))
+  })
+}

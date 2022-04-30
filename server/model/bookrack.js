@@ -133,8 +133,20 @@ class Bookrack extends Handle {
     // 通过判断图书是否已经借出
     get_book_isexcit(brb_id, bru_id) {
         const sql = `select count(1) as num from book_rel_user 
-        where bookrack_rel_book_id=${brb_id} and bookrack_rel_user_id=${bru_id}
-        and status = 0`;
+        where bookrack_rel_book_id=${brb_id} and status = 0`;
+        return super.commit(sql);
+    }
+    // 借阅情况
+    get_book_users(bookrack_id, isbn, user_id) {
+        const sql = `select bru.id as bru_id,brrb.id as brrb_id,u.nick_name,u.avatar,
+        bru.end_time,brru.bookrack_id,b.isbn,brru.user_id,bru.status,bru.return_time from book_rel_user bru
+        inner join bookrack_rel_user brru on brru.id = bru.bookrack_rel_user_id
+        inner join users u on brru.user_id = u.open_id
+        inner join bookrack_rel_book brrb on brrb.id = bru.bookrack_rel_book_id
+        inner join books b on b.id = brrb.book_id
+        where brru.bookrack_id = "${bookrack_id}" 
+        and b.isbn = "${isbn}" and brru.user_id = "${user_id}" 
+        and brrb.book_id = b.id and bru.status = 0;`;
         return super.commit(sql);
     }
 }

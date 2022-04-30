@@ -16,7 +16,6 @@ Page({
     longitudelocal: 0,
     distance: 0,
     brb_id: "",
-    bru_id: "",
     uuid: "",
     token: "",
     loading: false
@@ -26,12 +25,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let { brb_id, bru_id, title, uuid } = options;
+    let { brb_id, title, uuid } = options;
     let token = wx.getStorageSync('_token');
     wx.setNavigationBarTitle({
       title: `${title}-借出-提交表单`,
     })
-    this.setData({ brb_id, bru_id, uuid, token })
+    this.setData({ brb_id, uuid, token })
     this.getlocation();
   },
   async getlocation() {
@@ -62,9 +61,9 @@ Page({
     this.setData({ date: res.detail.value })
   },
   async handleClick() {
-    let { brb_id, bru_id, date, token, latitude, longitude, distance, latitudelocal, longitudelocal } = this.data;
+    let { brb_id, uuid, date, token, latitude, longitude, distance, latitudelocal, longitudelocal } = this.data;
     this.setData({ loading: true })
-    if (!brb_id || !bru_id) {
+    if (!brb_id || !uuid) {
       $Message({ type: "error", content: "未知错误" });
       time = setTimeout(() => {
         wx.navigateBack({
@@ -93,9 +92,10 @@ Page({
     if (!latitude && !longitude) {
       _distance = 0;
     }
+    console.log(_distance, distance);
     if (_distance <= distance) {
       let _result = await borrowbook({
-        end_time: date, bru_id, brb_id
+        end_time: date, bookrack_id: uuid, brb_id
       }, token);
       if (_result.code != 200) {
         $Message({ type: "error", content: _result.msg });

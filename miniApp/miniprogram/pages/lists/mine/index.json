@@ -2,7 +2,8 @@
   "usingComponents": {
     "m-bookrack": "../../../components/bookrack/index",
     "i-spin": "../../../dist/spin/index",
-    "i-message": "../../../dist/message/index"
+    "i-message": "../../../dist/message/index",
+    "m-back-line":"../../../components/back-line/index"
   },
   "navigationBarTitleText": "我的书架"
 }

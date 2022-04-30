@@ -1,34 +1,54 @@
 // pages/lists/bookrack/back/index.js
 const getRandomStr = require("../../../../utils/utils").getRandomStr;
+const { getdetailborrow, backbook } = require("../../../../utils/api/bookrack");
+const { $Message } = require("../../../../dist/base/index");
+let time = null;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isshow: false,
-    isbn: "9787212058937",
-    url: "http:\/\/api.jisuapi.com\/isbn\/upload\/96\/033c435b3f0f30.jpg",
-    title: "有理想就有疼痛",
-    author: "高晓春",
-    publisher: "安徽人民出版社",
-    pubdate: "2013-1",
-    summary: "《有理想就有疼痛:中国当代文化名人访谈录》是一份关于当代中国文化的最真实底稿，收录了高晓春与白先勇、冯骥才、余华、莫言、余秋雨、陈忠实等20位当代中国文化大家的对话。通过近距离的访谈，展现了这些文化大家多彩的内心世界，也阐释了他们对生命、艺术、财富及文化的理解。",
-    images:[]
+    images: [],
+    uuid: "",
+    token: "",
+    book: {},
+    detail: {},
+    loading: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    let { uuid } = options;
+    let token = wx.getStorageSync('_token');
+    this.setData({ uuid, token })
+  },
+  async getData(isbn) {
+    let { uuid, token } = this.data;
+    this.setData({ loading: true })
+    let _result = await getdetailborrow(isbn, uuid, token);
+    this.setData({ loading: false })
+    if (_result.code != 200) {
+      $Message({ type: "error", content: _result.msg });
+      return;
+    }
+    if(_result.data) {
+      $Message({ type: "warning", content: "暂无借阅此书" });
+    }
+    this.setData({ book: _result.book, detail: _result.data })
   },
   scan() {
     let _this = this;
+    wx.showLoading({ title: '识别中', mask: true })
     wx.scanCode({
       onlyFromCamera: true,
       async success(res) {
-        _this.setData({ isshow: true })
+        _this.getData(res.result);
+      },
+      complete() {
+        wx.hideLoading()
       }
     })
   },
@@ -40,7 +60,7 @@ Page({
       sourceType: ['camera'],
       camera: 'back',
       success(res) {
-        _this.setData({ spinShow: true })
+        _this.setData({ loading: true })
         let suffix = '.jpeg'
         let cloudPath = 'images/' + getRandomStr() + suffix;
         wx.cloud.uploadFile({
@@ -52,16 +72,34 @@ Page({
             _this.setData({ images: images });
           },
           complete() {
-            _this.setData({ spinShow: false })
+            _this.setData({ loading: false })
           }
         })
       }
     })
   },
-  submit() {
-    $Message({
-      content: '归还成功',
-      type: 'success'
-    });
+  async submit() {
+    let { detail, images, token } = this.data;
+    wx.showLoading({ title: '归还中', mask: true })
+    let _result = await backbook({
+      bru_id: detail.bru_id,
+      brrb_id: detail.brrb_id,
+      images
+    }, token);
+    if (_result.code != 200) {
+      $Message({ type: "error", content: _result.msg });
+      wx.hideLoading()
+      return;
+    }
+    $Message({ type: "success", content: "归还成功" });
+    time = setTimeout(() => {
+      wx.hideLoading()
+      wx.navigateBack({
+        delta: 1,
+      })
+    }, 100)
+  },
+  onHide() {
+    if (time) clearTimeout(time);
   }
 })

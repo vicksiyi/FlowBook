@@ -44,7 +44,7 @@ Page({
         wx.navigateBack({
           delta: 1,
         })
-      }, 500)
+      }, 1000)
     } else {
       book = _result[0];
       this.setTitle(book);

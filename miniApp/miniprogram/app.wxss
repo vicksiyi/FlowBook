@@ -62,3 +62,14 @@
 .hover-class {
   opacity: 0.5;
 }
+
+.deving {
+  width: 200rpx;
+  height: 90rpx;
+  margin: 20rpx auto;
+}
+
+.deving image {
+  width: 200rpx;
+  height: 90rpx;
+}

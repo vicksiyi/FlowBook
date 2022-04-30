@@ -1,10 +1,11 @@
 <!--pages/lists/bookrack/back/index.wxml-->
 <m-scan bindtap="scan"></m-scan>
-<view wx:if="{{isshow}}">
-  <m-book url="{{url}}" title="{{title}}" author="{{author}}" isbn="{{isbn}}" publisher="{{publisher}}" pubdate="{{pubdate}}" summary="{{summary}}"></m-book>
-  <m-book-rel-user back="true"></m-book-rel-user>
+<view>
+  <m-book wx:if="{{book.img}}" url="{{book.img}}" title="{{book.title}}" author="{{book.author}}" isbn="{{book.isbn}}" publisher="{{book.publisher}}" pubdate="{{book.publish_date}}" summary="{{book.desc}}"></m-book>
+  <m-book-rel-user wx:if="{{detail.isbn}}" avatar="{{detail.avatar}}"
+  nick_name="{{detail.nick_name}}" time="{{detail.end_time}}" status="2" back="true"></m-book-rel-user>
   <view class="add">
-    <i-button bind:click="addImage" type="primary">添加图片</i-button>
+    <i-button wx:if="{{detail.isbn}}" bind:click="addImage" type="primary">添加图片</i-button>
   </view>
   <view class="image-list">
     <view wx:for="{{images}}" class="item">
@@ -15,3 +16,6 @@
     <i-button bind:click="submit" type="primary">归还图书</i-button>
   </view>
 </view>
+
+<i-message id="message" />
+<i-spin i-class="spin-show" size="large" fix wx:if="{{ loading }}"></i-spin>

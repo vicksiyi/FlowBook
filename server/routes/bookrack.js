@@ -293,7 +293,7 @@ router.get('/getbookdetail', passport.authenticate('jwt', { session: false }), a
 })
 
 // $routes /bookrack/getlocation
-// 借书
+// 获取位置
 // @access private
 router.get('/getlocation', passport.authenticate('jwt', { session: false }), async (req, res) => {
     let { bookrack_id } = req.query;
@@ -308,7 +308,8 @@ router.get('/getlocation', passport.authenticate('jwt', { session: false }), asy
 // 借书
 // @access private
 router.put('/borrowbook', passport.authenticate('jwt', { session: false }), async (req, res) => {
-    let { end_time, bru_id, brb_id } = req.body;
+    let { open_id } = req.user;
+    let { end_time, brb_id, bookrack_id } = req.body;
     // 1、判断最大限期是否超越时间【end_time 与 max_time】
     end_time = new Date(end_time).getTime();
     let _result = await bookrack.get_brb_id_detail(brb_id).catch(err => {
@@ -325,8 +326,18 @@ router.put('/borrowbook', passport.authenticate('jwt', { session: false }), asyn
         res.json({ code: 400, msg: '借阅时间超过最大可借阅时间' })
         return;
     }
-    // 3、判断是否已经借出
-    _result = utils.toJson(await bookrack.get_book_isexcit(brb_id, bru_id).catch(err => {
+    // 获取用户ID
+    let _user = await bookrack.query_bookrack_user(bookrack_id, open_id).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    if (_user.length == 0) {
+        res.json({ code: 400, msg: '用户未加入书架' })
+        return;
+    }
+    _user = utils.toJson(_user)[0];
+    // 3、判断是否已经借出 
+    _result = utils.toJson(await bookrack.get_book_isexcit(brb_id).catch(err => {
         res.json({ code: 400, msg: '未知错误' })
         throw new Error(err);
     }))[0];
@@ -343,15 +354,91 @@ router.put('/borrowbook', passport.authenticate('jwt', { session: false }), asyn
         throw err;
     });
     let sql = `update bookrack_rel_book set status = 2 where id = ${brb_id};`;
-    console.log(sql);
     transaction.query(sql).then(() => {
         return new Promise(async (resolve, reject) => {
             sql = `insert into book_rel_user(bookrack_rel_book_id,
-            bookrack_rel_user_id,end_time) values(${brb_id},${bru_id},
+            bookrack_rel_user_id,end_time) values(${brb_id},${_user.id},
             '${utils.formatTimestamp(end_time)}')`;
             transaction.query(sql).then(() => {
                 resolve();
             }).catch((error) => reject(error));
+        })
+    }).then(() => {
+        // 提交事务
+        return new Promise((resolve, reject) => {
+            transaction.commit().then(() => {
+                res.json({ code: 200 })
+            }).catch((error) => reject(error));
+        })
+    }).catch(err => {
+        res.json({ code: 400, msg: '插入失败' })
+        transaction.rollback(err);
+    });
+})
+
+// $routes /bookrack/getdetailborrow?isbn&bookrack_id
+// 获取当前借阅的情况
+// @access private
+router.get('/getdetailborrow', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    let { open_id } = req.user;
+    let { isbn, bookrack_id } = req.query;
+    // 判断书本是否存在
+    let _book = await bookrack.get_book_detail(isbn).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    if (_book.length == 0) {
+        res.json({ code: 400, msg: "书本不存在" })
+        return;
+    }
+    _book = _book.map(value => {
+        value.publish_date = value.publish_date ? utils.formatTimestamp(new Date(value.publish_date).getTime()).split(" ")[0] : "";
+        return value;
+    })
+    // 查找借阅信息
+    let _result = await bookrack.get_book_users(bookrack_id, isbn, open_id).catch(err => {
+        res.json({ code: 400, msg: '未知错误' })
+        throw new Error(err);
+    });
+    _result = _result.map(value => {
+        value.end_time = value.end_time ? utils.formatTimestamp(new Date(value.end_time).getTime()).split(" ")[0] : "";
+        value.return_time = value.return_time ? utils.formatTimestamp(new Date(value.return_time).getTime()).split(" ")[0] : "";
+        return value;
+    })
+    if (_result.length != 0) res.json({ code: 200, data: utils.toJson(_result)[0], book: utils.toJson(_book)[0] });
+    else res.json({ code: 200, data: [], book: utils.toJson(_book)[0] });
+})
+
+// $routes /bookrack/backbook
+// 还书
+// @access private
+router.post('/backbook', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    let { bru_id, brrb_id, images } = req.body;
+    // 开启事务
+    transaction.start().catch(err => {
+        res.json({ code: 400, msg: '未知错误' });
+        throw err;
+    });
+    let sql = `update book_rel_user set status = 1 where id = ${bru_id}`;
+    transaction.query(sql).then(() => {
+        sql = `update bookrack_rel_book set status = 1 where id = ${brrb_id}`;
+        return new Promise(async (resolve, reject) => {
+            transaction.query(sql).then(() => {
+                resolve();
+            }).catch(err => { reject(err) })
+        })
+    }).then(() => {
+        return new Promise(async (resolve, reject) => {
+            for (let i = 0; i < images.length; ++i) {
+                sql = `insert into back_book_img(url,book_rel_user_id)
+                values('${images[i]}',${bru_id})`;
+                let _temp = await (new Promise((resolve, reject) => {
+                    transaction.query(sql).then(() => {
+                        resolve()
+                    }).catch((error) => reject(error));
+                })).catch((error) => reject(error));
+            }
+            resolve();
         })
     }).then(() => {
         // 提交事务

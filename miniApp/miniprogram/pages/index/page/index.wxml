@@ -1,2 +1,4 @@
 <!--pages/index/page/index.wxml-->
-<text>pages/index/page/index.wxml</text>
+<view class="deving">
+  <image src="../../../assets/images/otherIcon/deving.png"></image>
+</view>
